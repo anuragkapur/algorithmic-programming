@@ -14,6 +14,7 @@ and  = Θ(1) for n = 1
 
 => Running time = Θ(n * log n) 
 </pre>
+
 MaxSumNonConsec
 ---------------
 Given an array of positive numbers, find the maximum sum of elements such that no two adjacent elements are picked

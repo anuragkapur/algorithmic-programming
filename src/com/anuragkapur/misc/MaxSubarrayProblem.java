@@ -7,70 +7,81 @@ package com.anuragkapur.misc;
  */
 public class MaxSubarrayProblem {
 
-	static int numbers[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4};
-	//static int numbers[] = {13, -33, 25, 20};
-	
-	public static int maxSubarrayCrossingMid(int startIndex, int endIndex, int mid) {
-		
+	static int numbers[] = { 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4 };
+	//static int numbers[] = {13, 3, 25, 20, -3, -16, -23, -18, -20, -7, -12,-5, -22, 15, -4};
+	// static int numbers[] = {13, -33, 25, 20};
+
+	public static String maxSubarrayCrossingMid(int startIndex, int endIndex, int mid) {
+
 		int runningSum = numbers[mid];
 		int maxLeftSum = runningSum;
-		
+		int leftIndex = mid;
+		int rightIndex = mid + 1;
+
 		// Travel left from mid
-		for(int i=mid-1; i>=startIndex; i--) {
+		for (int i = mid - 1; i >= startIndex; i--) {
 			runningSum += numbers[i];
 			if (runningSum >= maxLeftSum) {
 				maxLeftSum = runningSum;
+				leftIndex = i;
 			}
 		}
 
-		// Travel right from mid		
+		// Travel right from mid
 		runningSum = numbers[mid + 1];
 		int maxRightSum = runningSum;
-		for(int i=mid+2; i<=endIndex; i++) {
+		for (int i = mid + 2; i <= endIndex; i++) {
 			runningSum += numbers[i];
 			if (runningSum >= maxRightSum) {
 				maxRightSum = runningSum;
+				rightIndex = i;
 			}
 		}
-		
+
 		if (maxRightSum >= 0) {
-			return maxLeftSum + maxRightSum;
-		}else {
-			return maxLeftSum;
+			String subArrayData = leftIndex + "," + rightIndex;
+			int sum = maxLeftSum + maxRightSum;
+			return sum + "," + subArrayData;
+		} else {
+			String subArrayData = leftIndex + "," + mid;
+			return maxLeftSum + "," + subArrayData;
 		}
 	}
-	
-	public static int maxSubarray(int startIndex, int endIndex) {
-		
+
+	public static String maxSubarray(int startIndex, int endIndex) {
+
 		System.out.println("startIndex :: " + startIndex + " endIndex :: " + endIndex);
-		
-		if(endIndex == startIndex || endIndex < startIndex) {
+
+		if (endIndex == startIndex || endIndex < startIndex) {
 			// Recursion base case 2
-			return numbers[startIndex];
-		}else {
-			
+			return numbers[startIndex] + "," + startIndex + "," + endIndex;
+		} else {
+
 			// Recursive case
 			int mid = (endIndex + startIndex) / 2;
-			
+
 			// find max subarray recursively in sub problems
-			int sumLeft = maxSubarray(startIndex, mid -1);
-			int sumRight = maxSubarray(mid + 1, endIndex);
-			
+			String leftSubArrayData = maxSubarray(startIndex, mid - 1);
+			int sumLeft = Integer.parseInt(leftSubArrayData.substring(0,leftSubArrayData.indexOf(",")));
+			String rightSubArrayData = maxSubarray(mid + 1, endIndex);
+			int sumRight = Integer.parseInt(rightSubArrayData.substring(0,rightSubArrayData.indexOf(",")));
+
 			// find max subarray where subarray contains the mid element (this
 			// is like the combine step of the divide and conquer paradigm)
-			int sumMiddle = maxSubarrayCrossingMid(startIndex, endIndex, mid);
-			
+			String midSubArrayData = maxSubarrayCrossingMid(startIndex, endIndex, mid);
+			int sumMiddle = Integer.parseInt(midSubArrayData.substring(0, midSubArrayData.indexOf(",")));
+
 			// find which sum is max and return it
-			if(sumLeft > sumRight && sumLeft > sumMiddle) {
-				return sumLeft;
-			}else if(sumRight > sumLeft && sumRight > sumMiddle) {
-				return sumRight;
-			}else {
-				return sumMiddle;
+			if (sumLeft > sumRight && sumLeft > sumMiddle) {
+				return leftSubArrayData;
+			} else if (sumRight > sumLeft && sumRight > sumMiddle) {
+				return rightSubArrayData;
+			} else {
+				return midSubArrayData;
 			}
 		}
 	}
-	
+
 	/**
 	 * @param args
 	 */
