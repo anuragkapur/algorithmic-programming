@@ -1,7 +1,7 @@
 FB Hacker Cup 2013 QR Problems
 ==============================
 
-Refer: [FB Hackercup 2013 QR](https://www.facebook.com/hackercup/problems.php?round=185564241586420, "FB Hackercup 2013 QR Problems")
+Refer: [FB Hackercup 2013 QR](https://www.facebook.com/hackercup/problems.php?round=185564241586420)
 
 Problem 1: Beautiful Strings
 ----------------------------
