@@ -24,7 +24,7 @@ public class FindTheMin {
 		
 		// Go over first k elements, 0..k-1
 		if(!(a >= k)){
-			indicesOfFirstKIntegers[a] ++;
+			indicesOfFirstKIntegers[a] = 0;
 		}
 		int previous = a;
 		//System.out.println("0 :: " + a);
