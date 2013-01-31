@@ -11,8 +11,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
+ * Status: CORRECT
+ * 
  * @author anurag.kapur
- *
  */
 public class FindTheMin {
 

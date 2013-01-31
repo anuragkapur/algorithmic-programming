@@ -10,8 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * Status: INCORRECT
+ * 
  * @author anurag.kapur
- *
  */
 public class BalancedSmileys {
 
