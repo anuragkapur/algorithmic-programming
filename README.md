@@ -8,7 +8,7 @@ Details about exercises can be found in Readme files within packages and are lin
 * Facebook Hacker Cup
 	* [Qualification Round 2013](src/com/anuragkapur/fb/hackercup2013/qr)
 	* [Qualification Round 2012](src/com/anuragkapur/fb/hackercup2012/qr)
-* [Sorting](/anuragkapur/Algorithmic-Programming/tree/master/src/com/anuragkapur/sorting) 
+* [Sorting](src/com/anuragkapur/sorting) 
 	* Insertion Sort
 	* Merge Sort
 * [Miscellaneous Algorithms](src/com/anuragkapur/misc)
