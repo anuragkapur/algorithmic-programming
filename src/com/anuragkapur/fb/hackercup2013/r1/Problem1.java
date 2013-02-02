@@ -25,13 +25,10 @@ public class Problem1 {
 	}
 
 	public static void main(String[] args) {
-
-		if (args.length < 2) {
-			System.out.println("Not enough command line arguments specified. Need 2 (Input and output file paths)");
-			return;
-		}
-
-		String inputFilePath = args[0];
+		
+		String inputFilePath = "";
+		String outputFilePath = "";
+		
 		try {
 			// String buffer for storing the output
 			StringBuffer output = new StringBuffer();
@@ -70,7 +67,7 @@ public class Problem1 {
 			in.close();
 
 			// Pass output string to method to write to file
-			pr.writeOutputToFile(output.toString(), args[1]);
+			pr.writeOutputToFile(output.toString(), outputFilePath);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
