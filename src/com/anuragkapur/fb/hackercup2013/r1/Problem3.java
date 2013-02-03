@@ -8,12 +8,84 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.StringTokenizer;
 
 public class Problem3 {
 
-	public String solution(String testCase) {
+	public int solution(String testCase) {
+		System.out.println("Test case :: " + testCase);
+		StringTokenizer tokenizer = new StringTokenizer(testCase, " ");
+		int w = Integer.parseInt(tokenizer.nextToken());
+		int h = Integer.parseInt(tokenizer.nextToken());
+		int p = Integer.parseInt(tokenizer.nextToken());
+		int q = Integer.parseInt(tokenizer.nextToken());
+		int n = Integer.parseInt(tokenizer.nextToken());
+		int x = Integer.parseInt(tokenizer.nextToken());
+		int y = Integer.parseInt(tokenizer.nextToken());
+		int a = Integer.parseInt(tokenizer.nextToken());
+		int b = Integer.parseInt(tokenizer.nextToken());
+		int c = Integer.parseInt(tokenizer.nextToken());
+		int d = Integer.parseInt(tokenizer.nextToken());
 		
-		return "";
+		int totalPositions = (w-p+1) * (h-q+1);
+		System.out.println("totalPositions :: " + totalPositions);
+		
+		HashSet<String> duplicateCounter = new HashSet<String>();
+		System.out.println("first dead :: " + x + "," + y);
+		for(int i=x-p+1; i<=x+p-1; i++) {
+			for(int j=y-q+1; j<= y+q-1; j++) {
+				System.out.println("**");
+				int nextX = i + p - 1;
+				int nextY = j + q - 1;
+				if(i >= 0 && i < w && nextX >= 0 && nextX < w) {
+					if(j >= 0 && j < h && nextY >= 0 && nextY < h) {
+						if(x >= i && x <= nextX && y >= j && y <= nextY) {
+							System.out.println(i + "," + j);
+							System.out.println(nextX + "," + j);
+							System.out.println(i + "," + nextY);
+							System.out.println(nextX + "," + nextY);
+							String temp = i + "," + j + nextX + "," + j + i + "," + nextY + nextX + "," + nextY;
+							if (duplicateCounter.add(temp)) {
+								totalPositions --;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		
+		for (int z = 1; z < n; z++) {
+			int prevX = x;
+			int prevY = y;
+			x = ((prevX * a) + (prevY * b) + 1) % w;
+			y = ((prevX * c) + (prevY * d) + 1) % h;
+			System.out.println(">>>>>>> " + x + "," + y);
+			for(int i=x-p+1; i<=x+p-1; i++) {
+				for(int j=y-q+1; j<= y+q-1; j++) {
+					System.out.println("**");
+					int nextX = i + p - 1;
+					int nextY = j + q - 1;
+					if(i >= 0 && i < w && nextX >= 0 && nextX < w) {
+						if(j >= 0 && j < h && nextY >= 0 && nextY < h) {
+							if(x >= i && x <= nextX && y >= j && y <= nextY) {
+								System.out.println(i + "," + j);
+								System.out.println(nextX + "," + j);
+								System.out.println(i + "," + nextY);
+								System.out.println(nextX + "," + nextY);
+								String temp = i + "," + j + nextX + "," + j + i + "," + nextY + nextX + "," + nextY;
+								if (duplicateCounter.add(temp)) {
+									totalPositions --;
+								}
+							}
+						}
+					}
+				}
+			}			
+		}
+		
+		return totalPositions;
 	}
 	
 	public void writeOutputToFile(String output, String filepath) throws IOException {
@@ -26,8 +98,8 @@ public class Problem3 {
 
 	public static void main(String[] args) {
 
-		String inputFilePath = "";
-		String outputFilePath = "";
+		String inputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/fb/hackercup2013/r1/intput.txt";
+		String outputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/fb/hackercup2013/r1/output.txt";
 		
 		try {
 			// String buffer for storing the output
