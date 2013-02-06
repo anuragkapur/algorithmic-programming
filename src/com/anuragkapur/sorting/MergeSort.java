@@ -55,17 +55,16 @@ public class MergeSort {
     		// Array of length 1 is sorted by definition
     		return a;
     	}else {
-    		// -1 as array indices start from 0
-    		int mid = (a.length / 2) - 1;
-    		int[] subarray1 = new int[mid + 1];
-    		int[] subarray2 = new int[a.length - mid - 1];
+    		int mid = a.length / 2;
+    		int[] subarray1 = new int[mid];
+    		int[] subarray2 = new int[a.length - mid];
     		
     		// populate subarray1 and subarray2
     		int count1 = 0;
     		int count2 = 0;
     		
     		for(int i=0; i<a.length; i++) {
-    			if(count1 > mid) {
+    			if(count1 >= mid) {
     				//subarray1 is full, populate subarray2
         			subarray2[count2] = a[i];
         			count2 ++;

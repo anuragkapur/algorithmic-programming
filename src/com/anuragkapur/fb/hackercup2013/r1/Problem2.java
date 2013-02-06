@@ -10,18 +10,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Problem2 {
-
+	
 	public String solution(int m, String k11, String k22) {
 		System.out.println(m + " " + k11 + " " + k22);
 		
-		char[] k1 = new char[k11.length()];
-		char[] k2 = new char[k22.length()];
-		
-		int l = k11.length() / m;
+		String answer = "dont know";
 		
 		
 		
-		return "";
+		return answer;
 	}
 	
 	public void writeOutputToFile(String output, String filepath) throws IOException {
@@ -34,7 +31,7 @@ public class Problem2 {
 
 	public static void main(String[] args) {
 
-		String inputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/fb/hackercup2013/r1/intput.txt";
+		String inputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/fb/hackercup2013/r1/input.txt";
 		String outputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/fb/hackercup2013/r1/output.txt";
 		
 		try {
