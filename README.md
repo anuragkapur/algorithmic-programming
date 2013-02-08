@@ -12,6 +12,7 @@ Details about exercises can be found in Readme files within packages and are lin
 	* Insertion Sort
 	* Merge Sort
 * [Miscellaneous Algorithms](src/com/anuragkapur/misc)
+	* Counting Inversion in an array
 	* MaxSubarray Problem
 	* Max sum, non-consectuvive numbers in array
 	* String permutations

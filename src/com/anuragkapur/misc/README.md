@@ -1,25 +1,27 @@
 Counting Inversions
 -------------------
-Problem Statement:
-Count number of pairs of elements in an array such that: 
+Problem Statement:   
+Count number of pairs of elements in an array such that:   
+<pre>
 for array indices (i,j) where i < j
 A[i] > A[j]
+</pre>
 
-Info:
+Info:   
 Solution is based on a the divide and conquer paradiigm and extends the logic of merge sort.
 
-Running Time:
+Running Time:   
 O(nlogn) [same as merge sort]
 
 MaxSubarray Problem
 -------------------
-Problem Statement: 
+Problem Statement:    
 Given an array of real numbers (problem is interesting only when there is a combination of positive and negative real numbers), compute the subarray (consectutive elements in array) with the maximum sum.
 
-Info:
+Info:   
 The solution is based on the divide and conquer paradigm.
 
-Running Time:
+Running Time:   
 <pre>
 The running time calculation is based on the following recursion equation
 T(n) = T(n/2) + Θ(n) for n > 1
