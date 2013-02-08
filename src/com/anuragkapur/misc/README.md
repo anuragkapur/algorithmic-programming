@@ -2,10 +2,8 @@ Counting Inversions
 -------------------
 Problem Statement:   
 Count number of pairs of elements in an array such that:   
-<pre>
-for array indices (i,j) where i < j
-A[i] > A[j]
-</pre>
+for array indices (i,j) where i < j   
+A[i] > A[j]   
 
 Info:   
 Solution is based on a the divide and conquer paradiigm and extends the logic of merge sort.
