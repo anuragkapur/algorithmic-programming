@@ -16,3 +16,4 @@ Details about exercises can be found in Readme files within packages and are lin
 	* MaxSubarray Problem
 	* Max sum, non-consectuvive numbers in array
 	* String permutations
+* [Basic FIFO/FILO and sorting Data Structures Exercice](src/com/anuragkapur/wgsn)
