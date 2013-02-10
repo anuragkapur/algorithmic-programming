@@ -3,7 +3,7 @@ Data Structures Exercise
 
 Problem Statement: [Read Here. Access may be restricted but may be requested](https://docs.google.com/file/d/1aLoKxT_9T-wz-TZTebA-WwKbOYUsG04WH6r1_8V9DxOO5aB4v6wGaQXCrRbN/edit)
 
-The class [DSOperations](src/com/anuragkapur/wgsn/DSOperations.java) expects input from System.in in the following example formats:  
+The class [DSOperations](DSOperations.java) expects input from System.in in the following example formats:  
 
 <pre>
 Example 1
