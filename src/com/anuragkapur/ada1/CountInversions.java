@@ -1,4 +1,11 @@
-package com.anuragkapur.misc;
+package com.anuragkapur.ada1;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Count number of split inversions in an array
@@ -7,7 +14,7 @@ package com.anuragkapur.misc;
  */
 public class CountInversions {
 
-	static int a[] = {3,5,1,2,4,6};
+	static int a[] = new int[100000];
 	
 	/**
 	 * Assumes the 2 parts of the array are sorted, and merges them. While merging, count split inversions
@@ -20,7 +27,7 @@ public class CountInversions {
 	 * @param rightEnd
 	 * @return
 	 */
-	public static int countSplitInversionsAndMerge(int start, int end, int leftStart, int leftEnd, int rightStart, int rightEnd) {
+	public static long countSplitInversionsAndMerge(int start, int end, int leftStart, int leftEnd, int rightStart, int rightEnd) {
 		int subArray1[] = new int[leftEnd - leftStart + 1];
 		int subArray2[] = new int[rightEnd - rightStart + 1];
 		
@@ -34,7 +41,8 @@ public class CountInversions {
 		}
 		
 		// merge and count inversions
-		int leftPointer = 0, rightPointer = 0, inversions = 0;
+		int leftPointer = 0, rightPointer = 0;
+		long inversions = 0;
 		for (int i = start; i <= end; i++) {
 			if(leftPointer >= subArray1.length) {
 				a[i] = subArray2[rightPointer++];
@@ -47,7 +55,7 @@ public class CountInversions {
 				
 			}else if(subArray1[leftPointer] > subArray2[rightPointer]) {
 				for (int j = leftPointer; j < subArray1.length; j++) {
-					System.out.println(subArray1[j] + "," + subArray2[rightPointer]);
+					//System.out.println(subArray1[j] + "," + subArray2[rightPointer]);
 				}
 				a[i] = subArray2[rightPointer++];
 				inversions = inversions + subArray1.length - leftPointer;
@@ -63,8 +71,8 @@ public class CountInversions {
 	 * @param end
 	 * @return
 	 */
-	public static int countInversionsAndSort(int start, int end) {
-		System.out.println("start :: " + start + " end :: " + end);
+	public static long countInversionsAndSort(int start, int end) {
+		//System.out.println("start :: " + start + " end :: " + end);
 		if(end - start == 1) {
 			// two elements in array, just sort them and return if this is an inversion
 			if (a[start] > a[end]) {
@@ -83,9 +91,9 @@ public class CountInversions {
 			int leftEnd = ((end - start) / 2 ) + start;
 			int rightStart = ((end - start) / 2 ) + start +1;
 			int rightEnd = end;
-			int leftInversions = countInversionsAndSort(leftStart, leftEnd);
-			int rightInversions = countInversionsAndSort(rightStart, rightEnd);
-			int splitInversions = countSplitInversionsAndMerge(start, end, leftStart, leftEnd, rightStart, rightEnd);
+			long leftInversions = countInversionsAndSort(leftStart, leftEnd);
+			long rightInversions = countInversionsAndSort(rightStart, rightEnd);
+			long splitInversions = countSplitInversionsAndMerge(start, end, leftStart, leftEnd, rightStart, rightEnd);
 			
 			return leftInversions + rightInversions + splitInversions;
 		}
@@ -95,6 +103,25 @@ public class CountInversions {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		String inputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/ada1/CountInversions.input";
+		
+		// read and parse input file
+		FileInputStream fstream;
+		try {
+			String strLine = "";
+			int count = 0;
+			fstream = new FileInputStream(inputFilePath);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			while ((strLine = br.readLine()) != null) {
+				a[count ++] = Integer.parseInt(strLine);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println(countInversionsAndSort(0, a.length-1));
 	}
