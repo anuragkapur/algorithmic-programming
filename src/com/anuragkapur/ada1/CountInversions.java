@@ -2,6 +2,7 @@ package com.anuragkapur.ada1;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -104,14 +105,15 @@ public class CountInversions {
 	 */
 	public static void main(String[] args) {
 		
-		String inputFilePath = "/Users/anuragkapur/Tech_Stuff/workspace/personal/Algorithmic-Programming/src/com/anuragkapur/ada1/CountInversions.input";
+		File inputFile = new File("src/com/anuragkapur/ada1/countinversions.in");
+		String inputFilePath = inputFile.getAbsolutePath();
+		
 		
 		// read and parse input file
-		FileInputStream fstream;
 		try {
 			String strLine = "";
 			int count = 0;
-			fstream = new FileInputStream(inputFilePath);
+			FileInputStream fstream = new FileInputStream(inputFilePath);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			while ((strLine = br.readLine()) != null) {
