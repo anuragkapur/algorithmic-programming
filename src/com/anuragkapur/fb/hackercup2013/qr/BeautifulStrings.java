@@ -19,9 +19,6 @@ public class BeautifulStrings {
 	public int maxScoreForString(String str) {
 		//Init frequency of chars
 		int frequencyOfChars[] = new int[26];
-		for (int i = 0; i < frequencyOfChars.length; i++) {
-			frequencyOfChars[i] = 0;
-		}
 		
 		//Case insensitive logic
 		str = str.toLowerCase();
@@ -99,14 +96,12 @@ public class BeautifulStrings {
 				} else {
 					noOfTestCases ++;
 					activeTestCaseNumber ++;
-					// Now that a test case has been parsed, compute output for
-					// this test case
 					
 					// Invoke algorithm here
 					String solutionToTestCase = bs.maxScoreForString(strLine) + ""; 
 					
 					// Prepare output string
-					System.out.println(" >> " + solutionToTestCase);
+					System.out.println("Case #" + activeTestCaseNumber + ": " + solutionToTestCase);
 					output.append("Case #" + activeTestCaseNumber + ": " + solutionToTestCase);
 					output.append("\n");
 				}
@@ -122,8 +117,6 @@ public class BeautifulStrings {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			// File read cleanup
 		}
 	}
 }
