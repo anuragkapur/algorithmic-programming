@@ -97,8 +97,8 @@ m[i] = (b * m[i - 1] + c) % r, 0 < i < k
 Input
 The first line contains an integer T (T <= 20), the number of test cases.
 This is followed by T test cases, consisting of 2 lines each.
-The first line of each test case contains 2 space separated integers, n, k (1 <= k <= 105, k < n <= 109).
-The second line of each test case contains 4 space separated integers a, b, c, r (0 <= a, b, c <= 109, 1 <= r <= 109).
+The first line of each test case contains 2 space separated integers, n, k (1 <= k <= 10^5, k < n <= 10^9).
+The second line of each test case contains 4 space separated integers a, b, c, r (0 <= a, b, c <= 10^9, 1 <= r <= 10^9).
 
 Output
 For each test case, output a single line containing the case number and the nth element of m.

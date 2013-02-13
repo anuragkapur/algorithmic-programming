@@ -21,14 +21,18 @@ public class FindTheMin {
 		System.out.println("Will begin calculations :: " + n + " " + k + " " + a + " " + b + " " + c + " " + r);
 		
 		int indicesOfFirstKIntegers[] = new int[k];
-		// Assume value of indices start from 1, this will help as there will be no need to init the array with -1
+		for (int i = 0; i < indicesOfFirstKIntegers.length; i++) {
+			// Initialize to -1 to say first k integers to start with don't
+			// figure in the first k numbers the pseudo-random number generates
+			indicesOfFirstKIntegers[i] = -1;
+		}
 		
-		// Go over first k elements, 0..k-1
-		if(!(a >= k)){
+		// Go over k elements that the number generator function produces, and
+		// fill in array positions 0..k-1 where appropriate
+		if(a < k){
 			indicesOfFirstKIntegers[a] = 0;
 		}
 		int previous = a;
-		//System.out.println("0 :: " + a);
 		for(int i = 1; i < k; i++) {
 			long temp = (long) b * previous;
 			temp = (long) temp + c;
@@ -36,14 +40,13 @@ public class FindTheMin {
 			String tempStr = temp + "";
 			int current = Integer.parseInt(tempStr);
 			
-			// Update indecesOfFirstKIntegers
+			// Update indicesOfFirstKIntegers
 			if (current < k) {
 				indicesOfFirstKIntegers[current]  = i;
 			}else {
-				// Just ignore it, this value can never be the answer
+				// Just ignore it, this value can never be the answer. Answer
+				// lies in the set [0,k-1] both numbers inclusive
 			}
-			
-			//System.out.println(i + " :: " + current);
 			
 			//current becomes previous for next iteration
 			previous = current;
@@ -58,7 +61,7 @@ public class FindTheMin {
 			//System.out.println("Indices of :: " + i);
 			
 			int index = indicesOfFirstKIntegers[i];
-			if (index == 0) {
+			if (index < 0) {
 				for (int j = 0; j < secondSetOfK.length; j++) {
 					if(secondSetOfK[j] == 0) {
 						// This is a free space, take it.
