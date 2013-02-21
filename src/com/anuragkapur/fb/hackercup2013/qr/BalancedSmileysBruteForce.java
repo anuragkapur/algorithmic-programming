@@ -3,122 +3,129 @@ package com.anuragkapur.fb.hackercup2013.qr;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 /**
- * Status: INCORRECT
+ * Status: CORRECT
  * 
  * @author anurag.kapur
  */
-public class BalancedSmileys {
+public class BalancedSmileysBruteForce {
 
-	public boolean isBalancedMessage(String str) {
+	public boolean isBalancedMessage(String msg) {
 		
 		boolean isBalanced = true;
-
-		String criticalStrings[] = new String[100];
-		for (int i = 0; i < criticalStrings.length; i++) {
-			criticalStrings[i] = "puff";
-		}
+		int countSmileys = 0;
 		
-		int count = 0;
-		
-		for (int i = 0; i < str.length(); i++) {
-			char c = str.charAt(i);
-			if ((c >= 'a' && c <= 'z') || c == ' ' || c == ':') {
-				// Valid message characters that can be safely ignored
-			}else if(c == '(') {
-				if(i > 0 && str.charAt(i-1) == ':') {
-					// This is sad
-					criticalStrings[count ++] = "sad";
+		// cleanup message string
+		char[] characters = msg.toCharArray();
+		StringBuffer cleanedMessageBuffer = new StringBuffer();
+		for (int i = 0; i < characters.length; i++) {
+			if(characters[i] == '(') {
+				if(i != 0) {
+					if(characters[i - 1] == ':') {
+						// sad smiley
+						cleanedMessageBuffer.append("s");
+						countSmileys ++;
+					}else {
+						cleanedMessageBuffer.append("(");
+					}
 				}else {
-					// This is (
-					criticalStrings[count ++] = "(";
+					cleanedMessageBuffer.append("(");
 				}
-			}else if(c == ')') {
-				if(i > 0 && str.charAt(i-1) == ':') {
-					//This is happy
-					criticalStrings[count ++] = "happy";
+			}else if(characters[i] == ')') {
+				if(i != 0) {
+					if(characters[i - 1] == ':') {
+						// happy smiley
+						cleanedMessageBuffer.append("h");
+						countSmileys ++;
+					}else {
+						cleanedMessageBuffer.append(")");
+					}
 				}else {
-					//This is )
-					criticalStrings[count ++ ] = ")";
-				}				
-			}else {
-				// Invalid character. Game over.
-				return false;
-			}
-		}
-		
-		for (int i = 0; i < count; i++) {
-
-			if (criticalStrings[i].equals("(")) {
-				// Look for ) in forward direction
-				boolean matchFound = false;
-				for (int j = i+1; j < count; j++) {
-					if (criticalStrings[j].equals(")")) {
-						// Balance found, now mark both as balanced
-						criticalStrings[j] = "puff";
-						criticalStrings[i] = "puff";
-						matchFound = true;
-						break;
-					}
-				}
-				if(!matchFound) {
-					// Look for happy in forward direction
-					for (int j = i+1; j < count; j++) {
-						if (criticalStrings[j].equals("happy")) {
-							// Balance found, now mark both as balanced
-							criticalStrings[j] = "puff";
-							criticalStrings[i] = "puff";
-							matchFound = true;
-							break;
-						}
-					}
-				}
-				if (!matchFound) {
-					// If still no match found, Game over!
-					return false;
-				}
-			}else if (criticalStrings[i].equals(")")) {
-				// Look for ( in backwards directions
-				boolean matchFound = false;
-				for (int j = i-1; j >= 0; j--) {
-					if (criticalStrings[j].equals("(")) {
-						// Balance found, now mark both as balanced
-						criticalStrings[j] = "puff";
-						criticalStrings[i] = "puff";
-						matchFound = true;
-						break;						
-					}
-				}
-				if(!matchFound) {
-					// Look for sad in backward direction
-					for (int j = i-1; j >= 0; j--) {
-						if (criticalStrings[j].equals("sad")) {
-							// Balance found, now mark both as balanced
-							criticalStrings[j] = "puff";
-							criticalStrings[i] = "puff";
-							matchFound = true;
-							break;						
-						}
-					}
-				}
-				if(!matchFound) {
-					// If still no match found, Game over!
-					return false;
+					cleanedMessageBuffer.append(")");
 				}
 			}
 		}
 		
+		//System.out.println(cleanedMessageBuffer.toString());
+		
+		// try all permutations of of smileys used as a bracket to see if any
+		// combination computes to a balanced message
+		double maxDecValue= Math.pow(2, countSmileys);
+		
+		//System.out.println("maxDecValue :: " + maxDecValue);
+		
+		for (int i = 0; i < maxDecValue; i++) {
+			isBalanced = true;
+			
+			String permuationStr = Integer.toBinaryString(i);
+			int paddingLength = countSmileys - permuationStr.length();
+			// pad permutation to have a consistent length = noOfBitBinaryCount
+			for (int j = 0; j < paddingLength; j++) {
+				permuationStr = "0"+permuationStr;
+			}
+			
+			
+			int indexInPermutationStr = 0;
+			//System.out.println(permuationStr);
+			
+			// iterate over message and set a smiley to a brace based on permutationStr
+			char[] cleanMessageChars = cleanedMessageBuffer.toString().toCharArray();
+			for (int j = 0; j < cleanMessageChars.length; j++) {
+				//if(indexInPermutationStr < permuationStr.length()) {
+					if (cleanMessageChars[j] == 's') {
+						String permuationBitStr = permuationStr.substring(indexInPermutationStr,indexInPermutationStr+1);
+						int permutationBit = Integer.parseInt(permuationBitStr);
+						if (permutationBit == 1) {
+							cleanMessageChars[j] = '(';
+						}
+						indexInPermutationStr++;
+					}else if(cleanMessageChars[j] == 'h') {
+						String permuationBitStr = permuationStr.substring(indexInPermutationStr,indexInPermutationStr+1);
+						int permutationBit = Integer.parseInt(permuationBitStr);
+						if (permutationBit == 1) {
+							cleanMessageChars[j] = ')';
+						}
+						indexInPermutationStr++;
+					}
+				//}
+			}
+			
+			// check if a balanced message found
+			Stack<Character> balancer = new Stack<Character>();
+			for (int j = 0; j < cleanMessageChars.length; j++) {
+				if (cleanMessageChars[j] == '(') {
+					balancer.push(new Character('('));
+				}else if(cleanMessageChars[j] == ')') {
+					if (balancer.empty()) {
+						isBalanced = false;
+					}else {
+						balancer.pop();
+					}
+				}
+			}
+			if(!balancer.empty()) {
+				isBalanced = false;
+			}
+			
+			if(isBalanced) {
+				break;
+			}
+		}
+	
 		return isBalanced;
 	}
 	
 	public void writeOutputToFile(String output, String filepath)
 			throws IOException {
+		
 		FileWriter fstream = new FileWriter(filepath);
 		BufferedWriter out = new BufferedWriter(fstream);
 		out.write(output);
@@ -130,19 +137,15 @@ public class BalancedSmileys {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		File inputFile = new File("src/com/anuragkapur/fb/hackercup2013/qr/balanced_smileys.in");
+		String inputFilePath = inputFile.getAbsolutePath();
 		
-		if (args.length < 2) {
-			System.out.println("Not enough command line arguments specified. Need 2 (Input and output file paths)");
-			return;
-		}
-		
-		String inputFilePath = args[0];
 		try {
 			// String buffer for storing the output
 			StringBuffer output = new StringBuffer();
 			
 			// Instantiate object to use non static methods
-			BalancedSmileys bs = new BalancedSmileys();
+			BalancedSmileysBruteForce bs = new BalancedSmileysBruteForce();
 			
 			// read and parse input file
 			FileInputStream fstream = new FileInputStream(inputFilePath);
@@ -177,7 +180,9 @@ public class BalancedSmileys {
 			in.close();
 			
 			// Pass output string to method to write to file
-			bs.writeOutputToFile(output.toString(), args[1]);
+			File outputFile = new File("src/com/anuragkapur/fb/hackercup2013/qr/balanced_smileys.out");
+			String filePath = outputFile.getAbsolutePath();
+			bs.writeOutputToFile(output.toString(), filePath);
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
