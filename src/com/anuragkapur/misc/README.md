@@ -11,8 +11,8 @@ Solution is based on a the divide and conquer paradiigm and extends the logic of
 ####Running Time:   
 O(nlogn) [same as merge sort]
 
-MaxSubarray Problem
--------------------
+MaxSubarrayProblem
+------------------
 ####Problem Statement:    
 Given an array of real numbers (problem is interesting only when there is a combination of positive and negative real numbers), compute the subarray (consectutive elements in array) with the maximum sum.
 
