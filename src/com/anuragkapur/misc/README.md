@@ -1,5 +1,5 @@
-Counting Inversions
--------------------
+CountInversions
+---------------
 ####Problem Statement:   
 Count number of pairs of elements in an array such that:   
 for array indices (i,j) where i < j   
