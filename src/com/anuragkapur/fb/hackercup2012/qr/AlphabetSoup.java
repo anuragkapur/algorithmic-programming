@@ -12,9 +12,8 @@ import java.io.InputStreamReader;
 /**
  * AlphabetSoup Problem. Refer to README for problem statement
  * 
- * Status: CORRECT
- * 
  * @author anurag.kapur
+ * @status CORRECT
  */
 public class AlphabetSoup {
 	

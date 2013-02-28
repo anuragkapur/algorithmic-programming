@@ -10,9 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Status: CORRECT
- * 
  * @author anurag.kapur
+ * @status CORRECT
  */
 public class BeautifulStrings {
 

@@ -12,9 +12,8 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 /**
- * Status: CORRECT
- * 
  * @author anurag.kapur
+ * @status CORRECT
  */
 public class BalancedSmileysBruteForce {
 

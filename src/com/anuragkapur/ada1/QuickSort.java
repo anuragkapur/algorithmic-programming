@@ -10,8 +10,9 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 /**
- * @author anuragkapur
+ * Quick Sort 
  * 
+ * @author anuragkapur
  */
 public class QuickSort {
 
