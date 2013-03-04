@@ -22,7 +22,7 @@ import java.util.StringTokenizer;
  */
 public class StronglyConnectedComponents {
 
-	private static int noOfNodes = 3;
+	private static int noOfNodes = 875714;
 	private static Set<Integer> vertices = new HashSet<Integer>();
 	private static Map<Integer,List<Integer>> edges = new HashMap<Integer, List<Integer>>();
 	private static Map<Integer,List<Integer>> reverseEdges = new HashMap<Integer, List<Integer>>();
@@ -193,7 +193,7 @@ public class StronglyConnectedComponents {
 	 */
 	public static void main(String[] args) {
 		
-		File file = new File("src/com/anuragkapur/ada1/sample.txt");
+		File file = new File("src/com/anuragkapur/ada1/scc.txt");
 		String line = null;
 		BufferedReader br = null;
 		try {
