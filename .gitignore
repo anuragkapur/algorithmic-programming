@@ -1,5 +1,6 @@
 bin/
 
+scc.txt
 *.class
 *.DS_Store
 
