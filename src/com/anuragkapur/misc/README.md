@@ -1,3 +1,7 @@
+AllPaths2Points2DMatrix
+-----------------------
+Given the dimensions of a 2D matrix and an ending point, find all possible paths to the ending point form the origin. Movement allowed is only downwards or to the right. Origin is assumed to be the top left corner.
+
 CountInversions
 ---------------
 ####Problem Statement:   
