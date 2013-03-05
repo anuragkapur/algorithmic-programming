@@ -11,6 +11,10 @@ package com.anuragkapur.misc;
  * Movement from a given path can only be downward or to the right. Diagonal not allowed.
  * </li>
  * 
+ * Optimisations possible:
+ * The given implementation performs some extra computation as some recursive calls are repeated.
+ * i.e. there are repeating sub problems. Hence, using DP, this can be further optimised.
+ * 
  * @author anuragkapur
  */
 public class AllPaths2Points2DMatrix {
@@ -42,8 +46,8 @@ public class AllPaths2Points2DMatrix {
 		}
 		if(x == endX && y == endY) {
 			path += "("+x+","+y+")";
-			System.out.format("Path number:%d found\n",++count);
-			System.out.println("Path :: " + path);
+			//System.out.format("Path number:%d found\n",++count);
+			//System.out.println("Path :: " + path);
 		}
 	}
 	
