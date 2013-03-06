@@ -15,10 +15,10 @@ public class StringPermute {
 		if(strLeft.length() == 1) {
 			soFar += strLeft;
 			System.out.println(++count + " :: " + soFar);
-		}
-		
-		for(int i=0; i<strLeft.length(); i++) {
-			permute(soFar + strLeft.charAt(i), strLeft.substring(0,i) + strLeft.substring(i+1));
+		}else{
+			for(int i=0; i<strLeft.length(); i++) {
+				permute(soFar + strLeft.charAt(i), strLeft.substring(0,i) + strLeft.substring(i+1));
+			}
 		}
 	}
 	
