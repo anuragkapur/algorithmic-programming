@@ -9,12 +9,33 @@ package com.anuragkapur.misc;
  */
 public class RodCutting1 {
 
+	private static int prices[] = {1,5,8,9,10,17,17,20,24,30};
+	
+	private static int rodCut(int length) {
+		
+		int bestPrice = prices[length - 1];
+		
+		if(length == 1) {
+			return prices[0];
+		}
+		
+		for(int i=1; i< length - 1; i++) {
+			int firstCutPrice = prices[i-1];
+			int leftOverRodPrice = rodCut(length - i);
+			int totalPrice = firstCutPrice + leftOverRodPrice;
+			if(totalPrice > bestPrice) {
+				bestPrice = totalPrice;
+			}
+		}
+		
+		return bestPrice;
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println(rodCut(prices.length));
+		System.out.println(rodCut(7));
 	}
-
 }
