@@ -53,9 +53,7 @@ public class BalancedSmileysBruteForce {
 			}
 		}
 		
-		//System.out.println(cleanedMessageBuffer.toString());
-		
-		// try all permutations of of smileys used as a bracket to see if any
+		// try all permutations of smileys used as a bracket to see if any
 		// combination computes to a balanced message
 		double maxDecValue= Math.pow(2, countSmileys);
 		
@@ -71,14 +69,11 @@ public class BalancedSmileysBruteForce {
 				permuationStr = "0"+permuationStr;
 			}
 			
-			
 			int indexInPermutationStr = 0;
-			//System.out.println(permuationStr);
 			
 			// iterate over message and set a smiley to a brace based on permutationStr
 			char[] cleanMessageChars = cleanedMessageBuffer.toString().toCharArray();
 			for (int j = 0; j < cleanMessageChars.length; j++) {
-				//if(indexInPermutationStr < permuationStr.length()) {
 					if (cleanMessageChars[j] == 's') {
 						String permuationBitStr = permuationStr.substring(indexInPermutationStr,indexInPermutationStr+1);
 						int permutationBit = Integer.parseInt(permuationBitStr);
@@ -94,7 +89,6 @@ public class BalancedSmileysBruteForce {
 						}
 						indexInPermutationStr++;
 					}
-				//}
 			}
 			
 			// check if a balanced message found
