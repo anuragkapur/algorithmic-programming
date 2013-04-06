@@ -39,3 +39,7 @@ Given an array of positive numbers, find the maximum sum of elements such that n
 StringPermute
 -------------
 Print all permutations of characters in a given string
+
+ComputeCombinationsRecursive
+----------------------------
+Compute all combinations of the characters in the given string
