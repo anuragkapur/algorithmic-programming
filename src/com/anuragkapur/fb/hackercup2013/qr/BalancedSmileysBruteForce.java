@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 /**
+ * BruteForce solution with exponential running time
+ * 
  * @author anurag.kapur
  * @status CORRECT
  */
