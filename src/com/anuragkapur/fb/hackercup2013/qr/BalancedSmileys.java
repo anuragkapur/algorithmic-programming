@@ -33,9 +33,9 @@ public class BalancedSmileys {
 						minOpen ++;
 				}
 			}else if(msgChars[i] == ')') {
-				maxOpen --;
+				minOpen --;
 				if(i > 0 && msgChars[i-1] != ':') {
-					minOpen --;
+					maxOpen --;
 				}
 			}
 			
@@ -46,7 +46,6 @@ public class BalancedSmileys {
 				isBalanced = false;
 				break;
 			}
-				
 		}
 		
 		if(minOpen != 0)
