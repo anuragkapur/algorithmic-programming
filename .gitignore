@@ -1,0 +1,14 @@
+bin/
+out/
+
+scc.txt
+*.class
+*.DS_Store
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+*.iml
+.idea/
