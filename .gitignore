@@ -1,0 +1,7 @@
+# Output dirs
+out/
+
+# IDE files
+.idea/
+*.iml
+
