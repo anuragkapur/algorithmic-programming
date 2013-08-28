@@ -1,4 +1,5 @@
 bin/
+out/
 
 scc.txt
 *.class
@@ -8,3 +9,6 @@ scc.txt
 *.jar
 *.war
 *.ear
+
+*.iml
+.idea/

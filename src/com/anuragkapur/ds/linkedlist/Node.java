@@ -7,11 +7,13 @@ package com.anuragkapur.ds.linkedlist;
  */
 public class Node {
 
-	String value;
+	int key;
 	Node next;
+	Node previous;
 	
-	public Node(String value, Node next) {
-		this.value = value;
+	public Node(int key, Node next, Node previous) {
+		this.key = key;
 		this.next = next;
+		this.previous = previous;
 	}
 }

@@ -17,8 +17,8 @@ public class InsertionSort {
 		
 		// Array of numbers to sort
 		int a[] = {5,1,4,3,8,6,9,10,7,2};
-		
-		// Insertion sort algo
+
+        // Insertion sort algo
 		for (int i = 1; i < a.length; i++) {
 			int key = a[i];
 			int j = i - 1;

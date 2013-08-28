@@ -76,7 +76,7 @@ public class BalancedSmileys {
 			StringBuffer output = new StringBuffer();
 			
 			// Instantiate object to use non static methods
-			BalancedSmileysBruteForce bs = new BalancedSmileysBruteForce();
+			BalancedSmileys bs = new BalancedSmileys();
 			
 			// read and parse input file
 			FileInputStream fstream = new FileInputStream(inputFilePath);
