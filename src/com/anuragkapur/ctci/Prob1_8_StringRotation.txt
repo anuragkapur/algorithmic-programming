@@ -1,0 +1,11 @@
+waterbottle
+erbottlewaterbottlewat
+
+public boolean isRotation(String s1, String s2) {
+    StringBuilder builder = new StringBuilder();
+    builder.append(s2).append(s2);
+    if(s1.isSubstring(builder.toString))
+        return true;
+    else
+        return false;
+}
