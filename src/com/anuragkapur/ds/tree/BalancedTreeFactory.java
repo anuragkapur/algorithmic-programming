@@ -15,7 +15,7 @@ public class BalancedTreeFactory {
         /*
                        4
                  1           3
-              2     4     5    7
+              2     4     5     7
                   2          6
          */
 
