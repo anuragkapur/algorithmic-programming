@@ -1,0 +1,29 @@
+public Node createBST(int a[], int startIndex, int endIndex) {
+
+    if(a == null) {
+
+        return null;
+    } else if (a.length == 1){
+
+        Node node1 = new Node(a[0]);
+        return node1;
+    }else if(a.length == 2)  {
+
+        if(a[0] < a[1]) {
+            Node node1 = new Node(a[0]);
+            Node node2 = new Node(a[1]);
+            node1.setRight(node2);
+        }
+    } else {
+
+        int middleIndex = (startIndex + endIndex) / 2;
+        Node node1 = new Node(a[middleIndex]);
+        Node leftSubTree = createBST(a, startIndex, middleIndex - 1));
+        Node rightSubTree = createBST(a, middleIndex + 1, endIndex));
+
+        node1.setLeft(leftSubTree);
+        node1.setRight(rightSubTree);
+
+        return node1;
+    }
+}

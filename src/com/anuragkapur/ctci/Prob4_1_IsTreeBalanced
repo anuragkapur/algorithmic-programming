@@ -1,0 +1,40 @@
+
+public static boolean isTreeBalanced(TreeNode rootNode) {
+
+    // breadth first traversal of tree
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(rootNode);
+
+    while(!queue.isEmpty()) {
+
+        TreeNode currentNode = queue.poll();
+
+        TreeNode leftNode = currentNode.getLeft();
+        TreeNode rightNode = currentNode.getRight();
+
+        int leftSubTreeHeight = getHeight(leftNode);
+        int rightSubTreeHeight = getHeight(rightNode);
+
+        int heightDifference =  leftSubTreeHeight -  rightSubTreeHeight;
+
+        if(heightDifference > 1 || heightDifference < -1) {
+            return false;
+        }
+
+        queue.add(leftNode);
+        queue.add(rightNode);
+    }
+
+    return true;
+}
+
+private static int getHeight(TreeNode node) {
+
+    if(node == null)
+        return -1;
+
+    int leftHeight = getHeight(node.getLeft());
+    int rightHeight = getHeight(node.getRight());
+
+    return(Math.max(leftHeight, rightHeight) + 1);
+}

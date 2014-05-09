@@ -17,7 +17,7 @@ public class PreOrderTraversal {
     }
 
     public static void main(String[] args) {
-        TreeNode rootNode = BalancedTreeFactory.getBalancedBinaryTree();
+        TreeNode rootNode = TreeFactory.getBalancedBinaryTree();
         preOrder(rootNode);
     }
 

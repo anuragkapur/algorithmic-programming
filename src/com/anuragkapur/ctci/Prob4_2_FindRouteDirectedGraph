@@ -1,0 +1,20 @@
+
+public isThereARoute(Graph g, Node start, Node end) {
+
+    if(start.equals(end))
+        return true;
+
+    for(Edge e : start.edges()) {
+
+        Node v = e.getVertex();
+
+        boolean isThereARoute = isThereARoute(g, v, end);
+
+        if(isThereARoute) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
