@@ -1,0 +1,21 @@
+
+
+public static List<String> compute(int n) {
+
+    List<String> combinations = new ArrayList<>();
+
+    if(n < 0) {
+        // do nothing
+    } else if(n == 1) {
+        combinations.add(String.valueOf(1));
+    } else {
+        for(int i=1; i<=n; i++) {
+            List<String> subCombos = compute(n-i);
+            for(String subCombo : subCombos) {
+                combinations.add(String.valueOf(i) + ", " + subCombo);
+            }
+        }
+    }
+
+    return combinations;
+}

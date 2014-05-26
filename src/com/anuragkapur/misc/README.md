@@ -45,3 +45,15 @@ Compute if given string is a substring of a another string
 Reverse chars of a string
 
 ##ComputeNthFibonacci
+
+##NumberSumCombinations
+Given a number, print all ways of getting the number as a sum of other numbers.
+Example, for n=5
+
+    1 + 1 + 1 + 1 + 1
+    1 + 4
+    2 + 3
+    1 + 1 + 1 + 2
+    1 + 1 + 3
+    5
+    ...etc
