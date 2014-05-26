@@ -58,27 +58,14 @@ public class MergeSort {
     		int mid = a.length / 2;
     		int[] subarray1 = new int[mid];
     		int[] subarray2 = new int[a.length - mid];
-    		
-    		// populate subarray1 and subarray2
-    		int count1 = 0;
-    		int count2 = 0;
-    		
-    		for(int i=0; i<a.length; i++) {
-    			if(count1 >= mid) {
-    				//subarray1 is full, populate subarray2
-        			subarray2[count2] = a[i];
-        			count2 ++;
-    			}else {
-    				subarray1[count1] = a[i];
-        			count1 ++;
-    			}
-    		}
+
+            System.arraycopy(a, 0, subarray1, 0, mid);
+            System.arraycopy(a, mid, subarray2, 0, a.length - mid);
     		
     		int sortedsub1[] = mergeSort(subarray1);
     		int sortedsub2[] = mergeSort(subarray2);
-    		
-    		int sorted[] = merge(sortedsub1, sortedsub2);
-    		return sorted;
+
+            return merge(sortedsub1, sortedsub2);
     	}
     }
     

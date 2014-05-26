@@ -16,4 +16,8 @@ public class Node {
 		this.next = next;
 		this.previous = previous;
 	}
+
+    public Node(int key) {
+        this.key = key;
+    }
 }

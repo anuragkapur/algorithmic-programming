@@ -3,7 +3,7 @@ package com.anuragkapur.misc;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class SumSet {
+public class SumSet {
 	
 	public static int count = 0;
 	

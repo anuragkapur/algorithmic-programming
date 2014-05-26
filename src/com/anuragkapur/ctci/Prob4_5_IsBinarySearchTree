@@ -1,0 +1,31 @@
+public static boolean isBinarySearchTree(TreeNode rootNode) {
+
+    if(rootNode == null) {
+        return true;
+    }
+
+    TreeNode leftSubTree = rootNode.getLeft();
+    TreeNode rightSubTree = rootNode.getRight();
+
+    boolean leftResult = true;
+    boolean rightResult = true;
+
+    if(leftSubTree != null) {
+        leftResult = isBinarySearchTree(leftSubTree, Integer.MIN_VALUE, rootNode.getPayload());
+    }
+}
+
+public static boolean isBinarySearchTree(TreeNode rootNode, int min, int max) {
+
+    if(rootNode == null) {
+        return true;
+    }
+
+    TreeNode leftSubTree = rootNode.getLeft();
+    TreeNode rightSubTree = rootNode.getRight();
+
+    boolean leftResult = true;
+    boolean rightResult = true;
+
+
+}

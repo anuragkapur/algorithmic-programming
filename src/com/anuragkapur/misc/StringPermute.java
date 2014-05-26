@@ -2,7 +2,7 @@ package com.anuragkapur.misc;
 
 /**
  * Print all permutations of a given string. 
- * Note: substrings are not permutations
+ * Note: sub-strings are not permutations
  * 
  * @author anurag.kapur
  */

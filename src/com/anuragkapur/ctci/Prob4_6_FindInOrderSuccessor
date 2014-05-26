@@ -1,0 +1,22 @@
+
+static boolean nodeFound = false;
+
+public static TreeNode inOrderSuccessor(TreeNode rootNode, TreeNode successorOf) {
+
+    if(rootNode == null)
+        return null;
+
+    TreeNode node = inOrderSuccessor(rootNode.getLeft(), successorOf);
+
+    if(node != null)
+        return node;
+
+    if(nodeFound)
+        return rootNode;
+
+    if(rootNode.equals(successorOf))
+        nodeFound = true;
+
+    node = inOrderSuccessor(rootNode.getRight(), successorOf);
+    return node;
+}

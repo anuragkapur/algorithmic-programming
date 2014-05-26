@@ -1,4 +1,10 @@
-1 2 3 4
-1 2 0 4
-0 2 3 4
-1 2 3 4
+public String reverse(String str) {
+
+    char chars[] = str.toCharArray();
+    int lastIndex = chars.length - 1;
+    for(int i=0; i<(chars.length / 2 - 1); i++) {
+        char temp = chars[lastIndex - i];
+        chars[lastIndex - i] = chars[i];
+        chars[i] = temp;
+    }
+}

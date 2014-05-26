@@ -43,3 +43,11 @@ Print all permutations of characters in a given string
 ComputeCombinationsRecursive
 ----------------------------
 Compute all combinations of the characters in the given string
+
+StringSubString
+---------------
+Compute if given string is a substring of a another string
+
+StringReverse
+-------------
+Reverse chars of a string
