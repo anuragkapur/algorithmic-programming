@@ -43,3 +43,5 @@ Compute if given string is a substring of a another string
 
 ##StringReverse
 Reverse chars of a string
+
+##ComputeNthFibonacci
