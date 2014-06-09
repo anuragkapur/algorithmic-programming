@@ -14,6 +14,12 @@ import java.util.Set;
 
 public class Prob2_1_UnsortedLinkedList {
 
+    /**
+     * Running time = O(n)
+     *
+     * @param singlyLinkedListNode
+     * @return
+     */
     public static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode singlyLinkedListNode) {
 
         SinglyLinkedListNode dedupedListNode = singlyLinkedListNode;
