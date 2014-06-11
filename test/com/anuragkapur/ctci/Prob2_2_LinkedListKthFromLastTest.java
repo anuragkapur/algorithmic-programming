@@ -3,7 +3,6 @@ package com.anuragkapur.ctci;
 import com.anuragkapur.ds.linkedlist.SinglyLinkedList;
 import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class Prob2_2_LinkedListKthFromLastTest {
@@ -20,7 +19,7 @@ public class Prob2_2_LinkedListKthFromLastTest {
         Assert.assertEquals("P", Prob2_2_LinkedListKthFromLast.getKthElement(rootNode, 1));
     }
 
-    @Test @Ignore
+    @Test
     public void testGetKthElement3() throws Exception {
         SinglyLinkedListNode rootNode = SinglyLinkedList.getSinglyLinkedListWithDuplicates();
         Assert.assertEquals("Not Found", Prob2_2_LinkedListKthFromLast.getKthElement(rootNode, 20));

@@ -12,7 +12,7 @@ public class Prob2_2_LinkedListKthFromLast {
     private static int backwardsCounter = 0;
 
     /**
-     * Kth from last element in a singly linked list. Doesn't handle the case where K is out of bounds
+     * Kth from last element in a singly linked list.
      *
      * @param node
      * @param k
@@ -23,14 +23,21 @@ public class Prob2_2_LinkedListKthFromLast {
         String payload;
 
         if(node.getNext() != null) {
+
             payload = getKthElement(node.getNext(), k);
+
             if(backwardsCounter == k)
                 return payload;
             else {
                 backwardsCounter ++;
-                return node.getPayload();
+                if (backwardsCounter == k) {
+                    return node.getPayload();
+                } else {
+                    return "Not Found";
+                }
             }
         } else {
+
             backwardsCounter = 1;
             return node.getPayload();
         }
