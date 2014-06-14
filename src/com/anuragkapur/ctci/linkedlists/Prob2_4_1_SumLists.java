@@ -9,6 +9,14 @@ import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
 
 public class Prob2_4_1_SumLists {
 
+    /**
+     * Sum of digits stored in list. Digits stored in reverse order. Ex 7 -> 1 -> 6 = 617
+     *
+     * @param node1
+     * @param node2
+     * @param carry
+     * @return
+     */
     public SinglyLinkedListNode addList(SinglyLinkedListNode node1, SinglyLinkedListNode node2, int carry) {
 
         int sum = 0;
