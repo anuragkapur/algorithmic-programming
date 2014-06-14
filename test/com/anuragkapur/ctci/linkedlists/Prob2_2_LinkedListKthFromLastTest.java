@@ -1,4 +1,4 @@
-package com.anuragkapur.ctci;
+package com.anuragkapur.ctci.linkedlists;
 
 import com.anuragkapur.ds.linkedlist.SinglyLinkedList;
 import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
