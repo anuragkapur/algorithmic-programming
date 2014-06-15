@@ -13,7 +13,9 @@ Details about exercises can be found in Readme files within packages and are lin
 * [Sorting](src/com/anuragkapur/sorting) 
 	* Insertion Sort
 	* Merge Sort
-* [Exercises from the book - Cracking the Coding Interview](src/com/anuragkapur/ctci)	
+* [Exercises from the book - Cracking the Coding Interview](src/com/anuragkapur/ctci)
+	* [LinkedLists](src/com/anuragkapur/ctci/linkedlists)
+	* [Recursion and Dynamic Programming](src/com/anuragkapur/ctci/recursionanddp)
 * [Basic FIFO/FILO and sorting Data Structures Exercice](src/com/anuragkapur/wgsn)
 * [Miscellaneous Algorithms](src/com/anuragkapur/misc)
 	* Counting Inversions in an array
