@@ -15,12 +15,14 @@ public class Prob9_1_CountingStairsSteps {
      */
     public int count(int n) {
 
-        if(n <= 3) {
+        if(n <= 2) {
             return n;
+        } else if(n == 3) {
+            return 4;
         } else {
             int ways = count(n-1);
             ways += count(n-2);
-            ways += count(n-2);
+            ways += count(n-3);
             return ways;
         }
     }
