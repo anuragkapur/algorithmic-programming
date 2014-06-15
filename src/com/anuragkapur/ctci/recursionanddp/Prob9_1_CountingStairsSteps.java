@@ -15,7 +15,9 @@ public class Prob9_1_CountingStairsSteps {
      */
     public int count(int n) {
 
-        if(n <= 2) {
+        if(n < 0) {
+            return 0;
+        } else if(n <= 2) {
             return n;
         } else if(n == 3) {
             return 4;
