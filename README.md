@@ -24,6 +24,8 @@ Details about exercises can be found in Readme files within packages and are lin
 	* String permutations
 	* All points from origin to a given point in a 2D matrix
 	* Merging K sorted arrays
+	
+_Note: Refer to [tests (where available)](test/com/anuragkapur/) to see the implementation in action_	
 
 License
 =======
