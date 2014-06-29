@@ -57,3 +57,6 @@ Example, for n=5
     1 + 1 + 3
     5
     ...etc
+    
+##MergeKArrays
+Given K sorted arrays, merge them    

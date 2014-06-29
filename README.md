@@ -23,6 +23,7 @@ Details about exercises can be found in Readme files within packages and are lin
 	* Max sum, non-consectuvive numbers in array
 	* String permutations
 	* All points from origin to a given point in a 2D matrix
+	* Merging K sorted arrays
 
 License
 =======
