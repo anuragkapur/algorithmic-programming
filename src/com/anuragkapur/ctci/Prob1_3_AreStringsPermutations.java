@@ -7,7 +7,6 @@ package com.anuragkapur.ctci;
 
 public class Prob1_3_AreStringsPermutations {
 
-    // Assuming strings of ASCII characters
     public static boolean checkIfPermutations(String str1, String str2) {
         if(str1.length() != str2.length())
             return false;
@@ -20,6 +19,8 @@ public class Prob1_3_AreStringsPermutations {
             for(int i=0; i<chars2.length; i++) {
                 if(chars2[i] == ch) {
                     matchFound = true;
+                    // Assuming strings of ASCII characters, and using character with int value 256 as a control
+                    // character, not used ever in the input strings.
                     chars2[i] = (char)256;
                     break;
                 }

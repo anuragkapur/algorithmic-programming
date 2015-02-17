@@ -14,6 +14,7 @@ Details about exercises can be found in Readme files within packages and are lin
 	* Insertion Sort
 	* Merge Sort
 * [Exercises from the book - Cracking the Coding Interview](src/com/anuragkapur/ctci)
+	* [Arrays and Strings](src/com/anuragkapur/ctci/arraysandstrings)
 	* [LinkedLists](src/com/anuragkapur/ctci/linkedlists)
 	* [Recursion and Dynamic Programming](src/com/anuragkapur/ctci/recursionanddp)
 * [Basic FIFO/FILO and sorting Data Structures Exercice](src/com/anuragkapur/wgsn)
@@ -31,7 +32,7 @@ License
 =======
 The MIT License (MIT)
 
-Copyright (c) 2014 Anurag Kapur
+Copyright (c) 2015 Anurag Kapur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the 
