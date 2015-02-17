@@ -1,4 +1,4 @@
-package com.anuragkapur.ctci;
+package com.anuragkapur.ctci.arraysandstrings;
 
 /**
  * @author: anuragkapur
@@ -7,6 +7,16 @@ package com.anuragkapur.ctci;
 
 public class Prob1_3_AreStringsPermutations {
 
+    /**
+     * Checks if one string is permutation of the other
+     *
+     * Run time complexity: O(n^2)
+     * Space complexity: no extra space needed
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
     public static boolean checkIfPermutations(String str1, String str2) {
         if(str1.length() != str2.length())
             return false;

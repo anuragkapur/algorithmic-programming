@@ -1,4 +1,4 @@
-package com.anuragkapur.ctci;
+package com.anuragkapur.ctci.arraysandstrings;
 
 import java.util.Arrays;
 
@@ -9,6 +9,14 @@ import java.util.Arrays;
 
 public class Prob1_3_1_AreStringsPermutations {
 
+    /**
+     * Run time complexity: O(n log n)
+     * Space complexity: no extra space needed
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
     public static boolean checkIfPermutations(String str1, String str2) {
 
         if(str1.length() != str2.length())

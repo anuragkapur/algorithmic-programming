@@ -1,5 +1,7 @@
-package com.anuragkapur.ctci;
+package com.anuragkapur.ctci.arraysandstrings;
 
+import com.anuragkapur.ctci.arraysandstrings.Prob1_3_1_AreStringsPermutations;
+import com.anuragkapur.ctci.arraysandstrings.Prob1_3_AreStringsPermutations;
 import org.junit.Assert;
 import org.junit.Test;
 
