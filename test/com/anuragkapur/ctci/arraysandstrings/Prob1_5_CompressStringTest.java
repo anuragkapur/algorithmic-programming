@@ -1,4 +1,4 @@
-package com.anuragkapur.ctci;
+package com.anuragkapur.ctci.arraysandstrings;
 
 import org.junit.Assert;
 import org.junit.Test;
