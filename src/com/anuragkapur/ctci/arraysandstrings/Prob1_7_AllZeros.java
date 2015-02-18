@@ -9,7 +9,7 @@ public class Prob1_7_AllZeros {
 
     /**
      * Run time complexity: O(mn), where m is number of rows and n is number of columns
-     * Space complexity:O(mn), One additional 2d array is used.
+     * Space complexity:O(m+n), 2 additional 1d arrays are used.
      *
      * @param a
      * @return
