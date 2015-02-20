@@ -1,6 +1,6 @@
 package com.anuragkapur.ctci.linkedlists;
 
-import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
+import com.anuragkapur.ds.linkedlist.LinkedListNode;
 
 /**
  * @author: anuragkapur
@@ -10,47 +10,46 @@ import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
 public class Prob2_5_SumLists {
 
     /**
-     * Sum of digits stored in list. Digits stored in reverse order. Ex 7 -> 1 -> 6 = 617
+     * Iterative approach - iterating over both lists at the same time and adding digits.
+     * Run time complexity: O(n), where n is the number of nodes in the larger list
+     * Space complexity: O(1), no new DS used that vary with input size.
      *
      * @param head1
      * @param head2
      * @return
      */
-    public static SinglyLinkedListNode addNumberLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+    public static LinkedListNode addDigits(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {
+
+        LinkedListNode<Integer> current1 = head1;
+        LinkedListNode<Integer> current2 = head2;
+
+        LinkedListNode<Integer> head3 = new LinkedListNode<>();
+        LinkedListNode current3 = head3;
 
         int carry = 0;
-        SinglyLinkedListNode resultList = null;
-        SinglyLinkedListNode resultListHead = null;
-
-        if (head1 == null && head2 == null) {
-            return null;
-        }
-
-        while(head1 != null && head2 != null) {
-            int sumOfDigits = Integer.valueOf(head1.getPayload()) + Integer.valueOf(head2.getPayload());
-            sumOfDigits += carry;
-            carry = sumOfDigits / 10;
-            if(resultList == null) {
-                resultList = new SinglyLinkedListNode(Integer.toString(sumOfDigits % 10));
-                resultListHead = resultList;
-            } else {
-                resultList.setNext(new SinglyLinkedListNode(Integer.toString(sumOfDigits % 10)));
-                resultList = resultList.getNext();
+        while(current1 != null || current2 != null) {
+            int sum = carry;
+            if (current1 != null) {
+                sum += current1.getData();
+                current1 = current1.getNext();
             }
-            head1 = head1.getNext();
-            head2 = head2.getNext();
+            if (current2 != null) {
+                sum += current2.getData();
+                current2 = current2.getNext();
+            }
+
+            int digit = sum % 10;
+            carry = sum / 10;
+            LinkedListNode<Integer> node = new LinkedListNode<>(digit);
+            current3.setNext(node);
+            current3 = current3.getNext();
         }
 
-        if(head1 != null) {
-            resultList.setNext(head1);
-        } else if(head2 != null) {
-            resultList.setNext(head2);
+        if (carry > 0) {
+            current3.setNext(new LinkedListNode<>(carry));
         }
 
-        if (carry != 0) {
-            resultList.setNext(new SinglyLinkedListNode(Integer.toString(carry)));
-        }
-
-        return resultListHead;
+        head3 = head3.getNext();
+        return head3;
     }
 }

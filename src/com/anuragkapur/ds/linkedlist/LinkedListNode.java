@@ -9,6 +9,10 @@ public class LinkedListNode<T> {
     LinkedListNode next;
     LinkedListNode previous;
 
+    public LinkedListNode() {
+
+    }
+
     public LinkedListNode(T data) {
         this.data = data;
     }
@@ -21,11 +25,11 @@ public class LinkedListNode<T> {
         this.data = data;
     }
 
-    public LinkedListNode getNext() {
+    public LinkedListNode<Integer> getNext() {
         return next;
     }
 
-    public void setNext(LinkedListNode next) {
+    public void setNext(LinkedListNode<Integer> next) {
         this.next = next;
     }
 
