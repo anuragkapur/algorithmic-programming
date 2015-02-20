@@ -4,7 +4,7 @@ import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Prob2_4_1_SumListsTest {
+public class Prob2_5_1_SumListsTest {
 
     @Test
     public void testAddNumberLists1() throws Exception {
@@ -20,7 +20,7 @@ public class Prob2_4_1_SumListsTest {
         node4.setNext(node5);
         node5.setNext(node6);
 
-        SinglyLinkedListNode result = new Prob2_4_1_SumLists().addList(node1, node4, 0);
+        SinglyLinkedListNode result = new Prob2_5_1_SumLists().addList(node1, node4, 0);
 
         StringBuilder stringBuilder = new StringBuilder();
         while (result != null) {
@@ -45,7 +45,7 @@ public class Prob2_4_1_SumListsTest {
         node4.setNext(node5);
         node5.setNext(node6);
 
-        SinglyLinkedListNode result = new Prob2_4_1_SumLists().addList(node1, node4, 0);
+        SinglyLinkedListNode result = new Prob2_5_1_SumLists().addList(node1, node4, 0);
 
         StringBuilder stringBuilder = new StringBuilder();
         while (result != null) {
@@ -68,7 +68,7 @@ public class Prob2_4_1_SumListsTest {
         SinglyLinkedListNode node5 = new SinglyLinkedListNode("5");
         node4.setNext(node5);
 
-        SinglyLinkedListNode result = new Prob2_4_1_SumLists().addList(node1, node4, 0);
+        SinglyLinkedListNode result = new Prob2_5_1_SumLists().addList(node1, node4, 0);
 
         StringBuilder stringBuilder = new StringBuilder();
         while (result != null) {
