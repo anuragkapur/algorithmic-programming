@@ -7,7 +7,7 @@ import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
  * @since: 14/06/14
  */
 
-public class Prob2_4_1_SumLists {
+public class Prob2_5_1_SumLists {
 
     /**
      * Sum of digits stored in list. Digits stored in reverse order. Ex 7 -> 1 -> 6 = 617
