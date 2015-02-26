@@ -59,4 +59,10 @@ Example, for n=5
     ...etc
     
 ##MergeKArrays
-Given K sorted arrays, merge them    
+Given K sorted arrays, merge them
+
+##Rod Cutting Problem
+### Problem Statement
+Given a rod of length n inches and a table of prices pi for i = 1,2,...,n, determine the maximum revenue rn obtainable
+by cutting up the rod and selling the pieces. Note that if the price pn for a rod of length n is large enough, an
+optimal solution may require no cutting at all.
