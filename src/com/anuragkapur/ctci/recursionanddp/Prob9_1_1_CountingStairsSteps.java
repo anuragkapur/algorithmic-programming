@@ -10,6 +10,8 @@ public class Prob9_1_1_CountingStairsSteps {
     /**
      * Bottom-up DP approach
      *
+     * Run time complexity: O(n)
+     *
      * @param n
      * @return
      */

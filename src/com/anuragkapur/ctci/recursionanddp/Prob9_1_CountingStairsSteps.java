@@ -10,6 +10,10 @@ public class Prob9_1_CountingStairsSteps {
     /**
      * Simple recursive solution. Caching based DP algorithm can be applied to improve performance.
      *
+     * Run time complexity      : O(3^n)
+     *      with memoization    : O(n) [Refer: http://functionspace.org/articles/32/Fibonacci-series-and-Dynamic-programming]
+     *                            or checkout bottom up solution which makes this clearer.
+     *
      * @param n
      * @return no. of ways to go up stairs with n steps
      */
