@@ -13,6 +13,15 @@ public class Prob9_2_RobotInGrid {
      * Simple recursive solution. Has overlapping sub-problems and hence can be optimised by DP. The presence of
      * overlapping sub-problems is evident by inspecting the sysout in the else block below.
      *
+     * Run time complexity: O(2^n)
+     * T(x, y) = T(x-1, y) + T(x, y-1) + 1
+     * Abusing the notation, let x = y
+     * T(x, x) = 2 * T(x-1, x) = 2 * 2 * T(x-2, x) = ... = 2 * ... * 2 * T(0, x)
+     *         = O(2^n)
+     *
+     * With memoization, there is constant amount of work happening in x * y calls. Thus,
+     * Run time complexity: O(xy)
+     *
      * @param x
      * @param y
      * @return
