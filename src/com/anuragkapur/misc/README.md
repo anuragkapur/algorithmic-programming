@@ -66,3 +66,11 @@ Given K sorted arrays, merge them
 Given a rod of length n inches and a table of prices pi for i = 1,2,...,n, determine the maximum revenue rn obtainable
 by cutting up the rod and selling the pieces. Note that if the price pn for a rod of length n is large enough, an
 optimal solution may require no cutting at all.
+
+##Reverse Multiples of 3
+### Problem Statement
+Given a alphanum string, return a new string with positions of chars that are a multiple of 3 reversed
+Example:
+Input: aa bb 83yy 9a6
+Output: aa bb 86yy 9a3
+
