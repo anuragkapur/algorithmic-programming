@@ -13,6 +13,7 @@ Details about exercises can be found in Readme files within packages and are lin
 * [Sorting](src/com/anuragkapur/sorting) 
 	* Insertion Sort
 	* Merge Sort
+	* Heap Sort
 * [Exercises from the book - Cracking the Coding Interview](src/com/anuragkapur/ctci)
 	* [Arrays and Strings](src/com/anuragkapur/ctci/arraysandstrings)
 	* [LinkedLists](src/com/anuragkapur/ctci/linkedlists)
