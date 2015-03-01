@@ -10,6 +10,13 @@ import java.util.List;
 
 public class Prob9_4_AllSubsets {
 
+    /**
+     * Run time complexity: O(2^n)
+     * T(n) = T(n-1) + 2^(n-1)
+     *
+     * @param set
+     * @return
+     */
     public List<List<Integer>> computeSubsets(List<Integer> set) {
 
         if(set == null) {
