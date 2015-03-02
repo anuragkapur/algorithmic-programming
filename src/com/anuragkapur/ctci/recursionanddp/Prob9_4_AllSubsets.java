@@ -45,4 +45,28 @@ public class Prob9_4_AllSubsets {
             return subsets1;
         }
     }
+
+    public List<List<Integer>> subsets(int a[], int start, int end) {
+
+        List<List<Integer>> subsets = new ArrayList<>();
+
+        if(end == start) {
+            List<Integer> subset = new ArrayList<>();
+            subset.add(a[start]);
+            subsets.add(subset);
+            subsets.add(new ArrayList<Integer>());
+        } else {
+            int num = a[start];
+            List<List<Integer>> subSubsets = subsets(a, start+1, end);
+            subsets.addAll(subSubsets);
+            for(List<Integer> subSubset : subSubsets) {
+                List<Integer> temp = new ArrayList<>();
+                temp.addAll(subSubset);
+                temp.add(num);
+                subsets.add(temp);
+            }
+        }
+
+        return subsets;
+    }
 }

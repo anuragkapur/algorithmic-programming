@@ -60,4 +60,16 @@ public class Prob9_4_AllSubsetsTest {
         builder.append("}");
         Assert.assertEquals("{{3}{}{3,2}{2}{3,1}{1}{3,2,1}{2,1}}", builder.toString());
     }
+
+    @Test
+    public void testSubsets1() throws Exception {
+        int a[] = {1,2};
+        Assert.assertEquals("[[2], [], [2, 1], [1]]", new Prob9_4_AllSubsets().subsets(a, 0, a.length-1).toString());
+    }
+
+    @Test
+    public void testSubsets2() throws Exception {
+        int a[] = {1,2,3};
+        Assert.assertEquals("[[3], [], [3, 2], [2], [3, 1], [1], [3, 2, 1], [2, 1]]", new Prob9_4_AllSubsets().subsets(a, 0, a.length-1).toString());
+    }
 }
