@@ -11,7 +11,7 @@ public class InOrderTraversal {
 
         if (startingNode != null) {
             inOrder(startingNode.getLeft());
-            System.out.println(startingNode.getPayload());
+            System.out.println(startingNode.getKey());
             inOrder(startingNode.getRight());
         }
     }

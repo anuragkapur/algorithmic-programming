@@ -38,6 +38,6 @@ public class Prob4_6_FindInOrderSuccessor {
         TreeNode nodeToFindSuccessorOf = new TreeNode(5);
 
         TreeNode resultNode = inOrderSuccessor(rootNode, nodeToFindSuccessorOf);
-        System.out.println(resultNode.getPayload());
+        System.out.println(resultNode.getKey());
     }
 }

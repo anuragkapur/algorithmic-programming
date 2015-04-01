@@ -9,10 +9,10 @@ public class TreeNode {
 
     private TreeNode left;
     private TreeNode right;
-    private int payload;
+    private int key;
 
     public TreeNode(int payload) {
-        this.payload = payload;
+        this.key = payload;
         left = null;
         right = null;
     }
@@ -33,12 +33,12 @@ public class TreeNode {
         this.right = right;
     }
 
-    public int getPayload() {
-        return payload;
+    public int getKey() {
+        return key;
     }
 
-    public void setPayload(int payload) {
-        this.payload = payload;
+    public void setKey(int key) {
+        this.key = key;
     }
 
     @Override
@@ -48,13 +48,13 @@ public class TreeNode {
 
         TreeNode treeNode = (TreeNode) o;
 
-        if (payload != treeNode.payload) return false;
+        if (key != treeNode.key) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return payload;
+        return key;
     }
 }

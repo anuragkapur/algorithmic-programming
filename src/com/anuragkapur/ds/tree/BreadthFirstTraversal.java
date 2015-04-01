@@ -20,7 +20,7 @@ public class BreadthFirstTraversal {
         while(queue.peek() != null) {
             count ++;
             TreeNode currentNode = queue.poll();
-            System.out.print(currentNode.getPayload());
+            System.out.print(currentNode.getKey());
 
             if ((count + 1) == Math.pow(2, level)) {
                 level ++;

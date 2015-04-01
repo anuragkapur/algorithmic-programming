@@ -26,11 +26,11 @@ public class Prob4_5_IsBinarySearchTree {
         boolean rightResult = isBinarySearchTree(rightSubTree);
 
         if (leftSubTree != null)
-            leftMax = (leftSubTree.getPayload() > leftMax) ? leftSubTree.getPayload() : leftMax;
+            leftMax = (leftSubTree.getKey() > leftMax) ? leftSubTree.getKey() : leftMax;
         if (rightSubTree != null)
-            rightMin = (rightSubTree.getPayload() < rightMin) ? rightSubTree.getPayload() : rightMin;
+            rightMin = (rightSubTree.getKey() < rightMin) ? rightSubTree.getKey() : rightMin;
 
-        return leftResult && rightResult && (rootNode.getPayload() >= leftMax && rootNode.getPayload() <= rightMin);
+        return leftResult && rightResult && (rootNode.getKey() >= leftMax && rootNode.getKey() <= rightMin);
     }
 
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ public class PreOrderTraversal {
     private static void preOrder(TreeNode startingNode) {
 
         if (startingNode != null) {
-            System.out.println(startingNode.getPayload());
+            System.out.println(startingNode.getKey());
             preOrder(startingNode.getLeft());
             preOrder(startingNode.getRight());
         }

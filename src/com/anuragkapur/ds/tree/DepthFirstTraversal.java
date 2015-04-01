@@ -13,7 +13,7 @@ public class DepthFirstTraversal {
             return;
         }
 
-        values.add(node.getPayload());
+        values.add(node.getKey());
         dft(node.getLeft(), values);
         dft(node.getRight(), values);
     }
