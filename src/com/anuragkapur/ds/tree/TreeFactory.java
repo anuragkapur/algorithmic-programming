@@ -100,13 +100,25 @@ public class TreeFactory {
 
         node1.setLeft(node3);
         node1.setRight(node4);
+        node1.setParent(rootNode);
 
         node2.setLeft(node5);
         node2.setRight(node6);
+        node2.setParent(rootNode);
+
+        node3.setParent(node1);
 
         node4.setLeft(node7);
+        node4.setParent(node1);
+
+        node5.setParent(node2);
 
         node6.setLeft(node8);
+        node6.setParent(node2);
+
+        node7.setParent(node4);
+
+        node8.setParent(node6);
 
         return rootNode;
     }

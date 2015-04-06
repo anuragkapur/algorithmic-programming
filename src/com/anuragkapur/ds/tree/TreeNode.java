@@ -9,6 +9,7 @@ public class TreeNode {
 
     private TreeNode left;
     private TreeNode right;
+    private TreeNode parent;
     private int key;
 
     public TreeNode(int payload) {
@@ -39,6 +40,14 @@ public class TreeNode {
 
     public void setKey(int key) {
         this.key = key;
+    }
+
+    public TreeNode getParent() {
+        return parent;
+    }
+
+    public void setParent(TreeNode parent) {
+        this.parent = parent;
     }
 
     @Override
