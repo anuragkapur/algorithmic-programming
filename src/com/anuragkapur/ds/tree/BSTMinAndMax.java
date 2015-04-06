@@ -13,4 +13,13 @@ public class BSTMinAndMax {
 
         return node;
     }
+
+    public TreeNode getMax(TreeNode node) {
+
+        if (node.getRight() != null) {
+            return getMax(node.getRight());
+        }
+
+        return node;
+    }
 }
