@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * Running time: O(V+E), where V is number of vertices and E is number of edges
+ *
  * @author anuragkapur
  */
 public class TopologicalSort {
