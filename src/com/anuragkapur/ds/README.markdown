@@ -7,7 +7,7 @@ _Note: Refer to tests to see the implementation in action_
 ###[BFSAdjacencyMatrix](graph/BFSAdjacencyMatrix.java)
 BFS order traversal of a graph specified as an adjacency matrix.
 
-###Topological Sort
+###Topological Sort(graph/TopologicalSort.java)
 Adapting DFS to perform topological sort
 
 ##[Tree Algorithms](tree/)
