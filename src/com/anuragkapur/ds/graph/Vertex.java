@@ -29,4 +29,11 @@ public class Vertex {
     public int hashCode() {
         return label;
     }
+
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "label=" + label +
+                '}';
+    }
 }
