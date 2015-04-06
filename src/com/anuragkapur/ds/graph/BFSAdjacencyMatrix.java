@@ -8,8 +8,9 @@ import java.util.Set;
 /**
  * Traversal of graph using Breadth First Search oder. Graph represented using an adjacency matrix.
  *
+ * Running time: O(V^2), where V is number of vertices in the graph.
+ *
  * @author: anuragkapur
- * @since: 29/06/14
  */
 
 public class BFSAdjacencyMatrix {
