@@ -74,3 +74,9 @@ Example:
 Input: aa bb 83yy 9a6
 Output: aa bb 86yy 9a3
 
+##Serealise List of Strings
+### Problem Statement
+Write a function to serialize a list of strings into a single string, and another to deserialize the output of your 
+first function into the original list of strings. The input strings can contain arbitrary characters, and be of any 
+length.
+
