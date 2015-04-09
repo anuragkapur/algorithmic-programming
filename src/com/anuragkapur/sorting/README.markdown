@@ -24,3 +24,10 @@ Heap Sort
 
 * Running times: Best case = average case = worst case = O(n log n)
 * Space complexity: Sorts in place! => O(1)
+
+Quick Sort
+----------
+
+* Average case running time: O(n log n)
+* Worst case running time: O(n^2)
+* Space complexity: Sorts in place
