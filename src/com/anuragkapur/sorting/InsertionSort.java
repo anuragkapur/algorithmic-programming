@@ -11,6 +11,10 @@ package com.anuragkapur.sorting;
 public class InsertionSort {
 
 	/**
+	 * Running time:
+     *  Best case: O(n)
+     *  Worst Case: O(n^2)
+     *
 	 * @param args
 	 */
 	public static void main(String[] args) {
