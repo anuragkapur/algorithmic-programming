@@ -17,4 +17,6 @@ Adapting DFS to perform topological sort
 * Depth first traversal
 * Search in a BST
 * Successor of a node in a BST
+* Insert node in a BST
+* Delete node in a BST
 
