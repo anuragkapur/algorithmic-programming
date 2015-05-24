@@ -18,6 +18,8 @@ Details about exercises can be found in Readme files within packages and are lin
 	* [Arrays and Strings](src/com/anuragkapur/ctci/arraysandstrings)
 	* [LinkedLists](src/com/anuragkapur/ctci/linkedlists)
 	* [Recursion and Dynamic Programming](src/com/anuragkapur/ctci/recursionanddp)
+* [Exercises from the book - Programming Interviews Exposed](src/com/anuragkapur/pie)
+	* [Linked Lists](src/com/anuragkapur/pie/linkedlists)
 * [Basic FIFO/FILO and sorting Data Structures Exercice](src/com/anuragkapur/wgsn)
 * [Miscellaneous Algorithms](src/com/anuragkapur/misc)
 	* Counting Inversions in an array
