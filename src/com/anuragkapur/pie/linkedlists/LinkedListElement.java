@@ -8,6 +8,13 @@ public class LinkedListElement<E> {
     private E data;
     private LinkedListElement<E> next;
 
+    public LinkedListElement() {
+    }
+
+    public LinkedListElement(E data) {
+        this.data = data;
+    }
+
     public E getData() {
         return data;
     }
