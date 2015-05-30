@@ -60,7 +60,7 @@ public class BSTNodeDeletionTest {
         BSTNodeDeletion nodeDeletion = new BSTNodeDeletion();
         TreeNode newRootNode = nodeDeletion.deleteNode(rootNode, node1);
 
-        InOrderTraversal.inOrder(newRootNode);
+        //InOrderTraversal.inOrder(newRootNode);
 
     }
 }
