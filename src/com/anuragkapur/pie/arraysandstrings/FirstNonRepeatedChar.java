@@ -33,13 +33,13 @@ public class FirstNonRepeatedChar {
 
         i = 0;
         while (i < str.length()) {
-            int singleChr = str.codePointAt(i);
+            int codePoint = str.codePointAt(i);
 
-            if (charTracker.get(singleChr) == 1) {
-                return new String(Character.toChars(singleChr));
+            if (charTracker.get(codePoint) == 1) {
+                return new String(Character.toChars(codePoint));
             }
 
-            i += Character.charCount(singleChr);
+            i += Character.charCount(codePoint);
         }
 
         return null;
