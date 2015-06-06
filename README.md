@@ -22,6 +22,7 @@ Details about exercises can be found in Readme files within packages and are lin
 	* [Linked Lists](src/com/anuragkapur/pie/linkedlists)
 	* [Trees and Graphs](src/com/anuragkapur/pie/teesandgraphs)
 	* [Arrays and Strings](src/com/anuragkapur/pie/arraysandstrings)
+	* [Recursion Problems](src/com/anuragkapur/pie/recursion)
 * [Basic FIFO/FILO and sorting Data Structures Exercice](src/com/anuragkapur/wgsn)
 * [Miscellaneous Algorithms](src/com/anuragkapur/misc)
 	* Counting Inversions in an array
