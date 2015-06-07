@@ -28,11 +28,11 @@ public class CombinationsTest {
 
     @Test
     public void testCombine4() throws Exception {
-        assertEquals("[a, ab, , b]", combinations.combine("ab").toString());
+        assertEquals("[, a, ab, b]", combinations.combine("ab").toString());
     }
 
     @Test
     public void testCombine5() throws Exception {
-        assertEquals("[ab, abc, a, ac, b, bc, , c]", combinations.combine("abc").toString());
+        assertEquals("[, a, ab, abc, ac, b, bc, c]", combinations.combine("abc").toString());
     }
 }

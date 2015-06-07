@@ -9,43 +9,41 @@ import java.util.List;
 public class Combinations {
 
     public List<String> combine(String str) {
+
         if (str == null) {
             return null;
         }
 
         CombinationsComputer combinationsComputer = new CombinationsComputer(str);
-        return combinationsComputer.combinations(0, str.length()-1);
+        combinationsComputer.combine(0);
+        return combinationsComputer.getCombinations();
     }
 
     private class CombinationsComputer {
 
         private String input;
+        private StringBuilder combination;
+        private List<String> combinations;
 
         public CombinationsComputer(String str) {
+            this.combination = new StringBuilder();
             this.input = str;
+            this.combinations = new ArrayList<>();
+            combinations.add("");
         }
 
-        public List<String> combinations(int start, int end) {
+        public void combine(int start) {
 
-            if (end < start) {
-                List<String> combinations = new ArrayList<>(1);
-                combinations.add("");
-                return combinations;
-            } else if (start == end) {
-                List<String> combinations = new ArrayList<>(2);
-                combinations.add("");
-                combinations.add(String.valueOf(input.charAt(start)));
-                return combinations;
-            } else {
-                List<String> combinationsSoFar = combinations(start + 1, end);
-                List<String> combinations = new ArrayList<>();
-                String prefix = String.valueOf(input.charAt(start));
-                for (String combination : combinationsSoFar) {
-                    combinations.add(prefix + combination);
-                }
-                combinations.addAll(combinationsSoFar);
-                return combinations;
+            for (int i=start; i<input.length(); i++) {
+                combination.append(input.charAt(i));
+                combinations.add(combination.toString());
+                combine(i+1);
+                combination.setLength(combination.length()-1);
             }
+        }
+
+        public List<String> getCombinations() {
+            return this.combinations;
         }
     }
 }
