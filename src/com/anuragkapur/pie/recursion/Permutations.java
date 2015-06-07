@@ -10,35 +10,50 @@ public class Permutations {
 
     public List<String> getPermutations(String str) {
 
-        if (str == null) {
-            return null;
+        PermutationsComputer permutationsComputer = new PermutationsComputer(str);
+        permutationsComputer.permute();
+        return permutationsComputer.getPermutations();
+    }
+
+    private class PermutationsComputer {
+
+        String input;
+        boolean used[];
+        StringBuilder permutation;
+        List<String> permutations;
+
+        public PermutationsComputer(String str) {
+            if (str != null) {
+                input = str;
+                used = new boolean[str.length()];
+                permutation = new StringBuilder();
+                permutations = new ArrayList<>();
+            }
         }
 
-        List<String> permutations = new ArrayList<>();
-        if (str.length() == 1) {
+        public void permute() {
 
-            permutations.add(str);
-        } else {
+            if (input == null) {
+                return;
+            }
 
-            char chars[] = str.toCharArray();
-            for (int i = 0; i <chars.length; i++) {
-
-                String prefix = String.valueOf(chars[i]);
-                StringBuilder remainder = new StringBuilder();
-                for (int j = 0; j <chars.length; j++) {
-                    if (j != i) {
-                        remainder.append(chars[j]);
+            if (permutation.length() == input.length()) {
+                permutations.add(permutation.toString());
+            } else {
+                for (int i = 0; i < input.length(); i++) {
+                    if (!used[i]) {
+                        permutation.append(input.charAt(i));
+                        used[i] = true;
+                        permute();
+                        used[i] = false;
+                        permutation.setLength(permutation.length()-1);
                     }
-                }
-
-                List<String> subPermutations = getPermutations(remainder.toString());
-                for (String subPerm : subPermutations) {
-                    permutations.add(prefix+subPerm);
                 }
             }
         }
 
-
-        return permutations;
+        public List<String> getPermutations() {
+            return permutations;
+        }
     }
 }
