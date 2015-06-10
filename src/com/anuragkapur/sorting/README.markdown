@@ -31,3 +31,10 @@ Quick Sort
 * Average case running time: O(n log n)
 * Worst case running time: O(n^2)
 * Space complexity: Sorts in place
+
+Selection Sort
+--------------
+
+* Best Case running time: Θ(n)
+* Worst Case running time: Θ(n^2)
+* Space complexity: Sorts in place!
