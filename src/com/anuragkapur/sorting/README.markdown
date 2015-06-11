@@ -35,6 +35,6 @@ Quick Sort
 Selection Sort
 --------------
 
-* Best Case running time: Θ(n)
+* Best Case running time: Θ(n^2)
 * Worst Case running time: Θ(n^2)
 * Space complexity: Sorts in place!

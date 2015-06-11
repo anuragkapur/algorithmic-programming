@@ -11,6 +11,7 @@ Details about exercises can be found in Readme files within packages and are lin
 * [Stanford (Coursera.org) Algorithms - Design and Analysis Part 1](src/com/anuragkapur/ada1)
 * [Data Structures](src/com/anuragkapur/ds)
 * [Sorting](src/com/anuragkapur/sorting) 
+	* Selection Sort
 	* Insertion Sort
 	* Merge Sort
 	* Heap Sort
