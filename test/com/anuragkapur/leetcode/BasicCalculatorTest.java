@@ -35,4 +35,9 @@ public class BasicCalculatorTest {
     public void testCalculate5() throws Exception {
         assertEquals(23, calculator.calculate("(1+(4+5+2)-3)+(6+8)"));
     }
+
+    @Test
+    public void testCalculate6() throws Exception {
+        assertEquals(-2, calculator.calculate("6-8-7+(1+6)"));
+    }
 }
