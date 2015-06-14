@@ -1,8 +1,5 @@
 package com.anuragkapur.leetcode;
 
-import java.util.Deque;
-import java.util.LinkedList;
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -16,75 +13,43 @@ public class CountCompleteTreeNodes {
 
     public int countNodes(TreeNode root) {
 
-        if(root == null) {
-            return -1;
+        if (root == null)  {
+            return 0;
         }
 
-        // compute height
-        TreeNode current = root;
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+
+        int leftHeight = leftHeight(root);
+        int rightHeight = rightHeight(root);
+        if (leftHeight == rightHeight) {
+            int height = 0;
+            for (int i=0; i<=leftHeight; i++) {
+                height += Math.pow(2, i);
+            }
+            return height;
+        }
+
+        return countNodes(root.left) + countNodes(root.right) + 1;
+    }
+
+    private int leftHeight(TreeNode root) {
         int height = -1;
-        while(current != null) {
+        while (root != null) {
             height ++;
-            current = current.left;
+            root = root.left;
         }
-
-        // count leaves
-        int leaves = countLeaves(root, height);
-
-        // compute node count
-        int count = 0;
-        for(int i=0; i<height; i++) {
-            count += Math.pow(2, i);
-        }
-        count += leaves;
-
-        return count;
+        return height;
     }
 
-    private int countLeaves(TreeNode root, int height) {
-
-        int leaves = 0;
-        Deque<TreeNodeWithLevel> stack = new LinkedList<>();
-        stack.push(new TreeNodeWithLevel(root, 0));
-        boolean incompleteBranchFound = false;
-
-        while(!stack.isEmpty()) {
-
-            if (incompleteBranchFound) {
-                break;
-            }
-
-            TreeNodeWithLevel current = stack.pop();
-
-            if (current.level == height) {
-                leaves ++;
-            } else {
-                if (current.treeNode.right == null) {
-                    incompleteBranchFound = true;
-                }
-                if (current.treeNode.left != null) {
-                    leaves ++;
-                }
-            }
-
-            if (current.treeNode.right != null) {
-                stack.push(new TreeNodeWithLevel(current.treeNode.right, current.level+1));
-            }
-            if (current.treeNode.left != null) {
-                stack.push(new TreeNodeWithLevel(current.treeNode.left, current.level+1));
-            }
+    private int rightHeight(TreeNode root) {
+        int height = -1;
+        while (root != null) {
+            height ++;
+            root = root.right;
         }
-
-        return leaves;
-    }
-
-    private class TreeNodeWithLevel {
-        TreeNode treeNode;
-        int level;
-        TreeNodeWithLevel(TreeNode treeNode, int level) {
-            this.treeNode = treeNode;
-            this.level = level;
-        }
+        return height;
     }
 
     private class TreeNode {
