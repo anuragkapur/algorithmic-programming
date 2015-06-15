@@ -11,6 +11,14 @@ package com.anuragkapur.leetcode;
  */
 public class CountCompleteTreeNodes {
 
+    /**
+     * Running time: O(h^2)
+     * where h is height of the tree
+     *      h = O(log n), where n is the no. of. nodes in the tree
+     *
+     * @param root
+     * @return
+     */
     public int countNodes(TreeNode root) {
 
         if (root == null)  {
