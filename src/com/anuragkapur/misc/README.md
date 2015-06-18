@@ -80,3 +80,6 @@ Write a function to serialize a list of strings into a single string, and anothe
 first function into the original list of strings. The input strings can contain arbitrary characters, and be of any 
 length.
 
+##CircularArrayRelativeIndices
+### Problem Statement
+Determine whether a circular array of relative indices is composed of a single, complete cycle
