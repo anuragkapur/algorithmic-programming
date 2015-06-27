@@ -5,3 +5,5 @@ Exercises from the book - Cracking the Coding Interview - 5th edition
 
 * [Arrays and Strings](arraysandstrings)
 * [LinkedLists](linkedlists)
+* [Recursion and Dynamic Programming](recursionanddp)
+* [Bit Manipulation](bitmanipulation)
