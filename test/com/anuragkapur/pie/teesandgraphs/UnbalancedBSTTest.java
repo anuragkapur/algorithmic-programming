@@ -1,8 +1,7 @@
 package com.anuragkapur.pie.teesandgraphs;
 
+import com.anuragkapur.ds.tree.Node;
 import org.junit.Test;
-
-import java.util.List;
 
 import static org.junit.Assert.*;
 

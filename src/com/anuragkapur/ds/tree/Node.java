@@ -1,4 +1,4 @@
-package com.anuragkapur.pie.teesandgraphs;
+package com.anuragkapur.ds.tree;
 
 /**
  * @author anuragkapur

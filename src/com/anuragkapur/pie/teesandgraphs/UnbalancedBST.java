@@ -1,5 +1,7 @@
 package com.anuragkapur.pie.teesandgraphs;
 
+import com.anuragkapur.ds.tree.Node;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

@@ -1,5 +1,7 @@
 package com.anuragkapur.pie.teesandgraphs;
 
+import com.anuragkapur.ds.tree.Node;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
