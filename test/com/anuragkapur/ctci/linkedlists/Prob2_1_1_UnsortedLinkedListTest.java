@@ -1,6 +1,5 @@
 package com.anuragkapur.ctci.linkedlists;
 
-import com.anuragkapur.ctci.linkedlists.Prob2_1_1_UnsortedLinkedList;
 import com.anuragkapur.ds.linkedlist.SinglyLinkedList;
 import com.anuragkapur.ds.linkedlist.SinglyLinkedListNode;
 import org.junit.Assert;
