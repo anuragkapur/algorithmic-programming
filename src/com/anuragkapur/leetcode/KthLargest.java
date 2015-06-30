@@ -25,7 +25,6 @@ public class KthLargest {
             return nums[pivot];
         }
 
-        //TODO: k passed to the recursive calls is incorrect at the moment
         if (pivot < indexOfK) {
             return findKthLargest(nums, indexOfK, pivot+1, end);
         } else {
