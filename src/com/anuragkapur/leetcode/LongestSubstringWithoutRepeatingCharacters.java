@@ -10,6 +10,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
 
+        if (s == null) {
+            return 0;
+        }
+
         Set<Character> uniqueChars = null;
         int longestLength = 0;
         char chars[] = s.toCharArray();
