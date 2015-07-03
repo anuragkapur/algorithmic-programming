@@ -27,9 +27,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int length = 0;
 
         while (end < chars.length) {
-            if (uniques.add(chars[end])) {
-                end ++;
-            } else {
+            if (!uniques.add(chars[end])) {
                 int candidateLength = end-start;
                 length = Math.max(length, candidateLength);
 
@@ -39,8 +37,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
                     start ++;
                 }
                 start ++;
-                end ++;
             }
+            end ++;
         }
 
         return Math.max(length, end-start);
