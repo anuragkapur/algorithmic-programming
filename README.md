@@ -20,6 +20,7 @@ Details about exercises can be found in Readme files within packages and are lin
 	* [LinkedLists](src/com/anuragkapur/ctci/linkedlists)
 	* [Recursion and Dynamic Programming](src/com/anuragkapur/ctci/recursionanddp)
 	* [Bit Manipulation](src/com/anuragkapur/ctci/bitmanipulation)
+* [Exercises from the book - Cracking the Coding Interview, 6th edition](src/com/anuragkapur/ctci6ed)
 * [Exercises from the book - Programming Interviews Exposed](src/com/anuragkapur/pie)
 	* [Linked Lists](src/com/anuragkapur/pie/linkedlists)
 	* [Trees and Graphs](src/com/anuragkapur/pie/teesandgraphs)
