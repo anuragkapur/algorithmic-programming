@@ -26,35 +26,15 @@ public class OneAway {
         char chars2[] = str2.toCharArray();
 
         if (chars1.length > chars2.length) {
-            return isOneInsertAway(chars2, chars1);
+            return isOneAway(chars2, chars1);
         } else if(chars1.length < chars2.length) {
-            return isOneInsertAway(chars1, chars2);
+            return isOneAway(chars1, chars2);
         } else {
-            return isOneReplaceAway(chars1, chars2);
+            return isOneAway(chars1, chars2);
         }
     }
 
-    private boolean isOneReplaceAway(char chars1[], char chars2[]) {
-
-        if (chars1.length != chars2.length) {
-            throw new IllegalArgumentException("string should be of equal length");
-        }
-
-        boolean oneDifferentSeen = false;
-        for (int i=0; i<chars1.length; i++) {
-            if (chars1[i] != chars2[i]) {
-                if (oneDifferentSeen) {
-                    return false;
-                }
-
-                oneDifferentSeen = true;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean isOneInsertAway(char chars1[], char chars2[]) {
+    private boolean isOneAway(char chars1[], char chars2[]) {
 
         int pointer1 = 0;
         int pointer2 = 0;
@@ -66,6 +46,9 @@ public class OneAway {
                 if (oneDifferenceSeen) {
                     return false;
                 } else {
+                    if (chars2.length == chars1.length) {
+                        pointer1 ++;
+                    }
                     pointer2 ++;
                     oneDifferenceSeen = true;
                 }
