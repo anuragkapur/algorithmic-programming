@@ -5,6 +5,12 @@ package com.anuragkapur.leetcode;
  */
 public class LongestPalindromeSubstring {
 
+    /**
+     * Run time complexity: O(n^2) (worst case)
+     *
+     * @param s
+     * @return
+     */
     public String longestPalindrome(String s) {
 
         if (s == null || s.length() == 1) {
