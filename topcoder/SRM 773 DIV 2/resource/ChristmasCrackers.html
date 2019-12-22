@@ -1,0 +1,20 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+A Christmas cracker is a festive table decoration that resembles an oversized sweet-wrapper.
+The middle part of a cracker usually contains some small gift and a terrible Christmas pun.
+("What does Santa feel when going down a narrow chimney? Claus-trophobia!")
+It is customary that each cracker should be opened by two people.
+Each person takes hold of one outer chamber and they pull in opposite directions, causing the cracker to split unevenly and leaving one person holding the central chamber and the prize.
+</p>
+<p>
+<b>N</b> people (numbered 0 to <b>N</b>-1) are attending a Christmas party.
+Each person would like to open at least <b>K</b> Christmas crackers.
+What is the smallest total number C of crackers they need, and how should they open them?
+</p>
+<p>
+You are given the ints <b>N</b> and <b>K</b>. Return a int[] with 2*C elements: for each cracker, the numbers of the two people who should open it. Any valid solution will be accepted.
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>ChristmasCrackers</td></tr><tr><td>Method:</td><td>crack</td></tr><tr><td>Parameters:</td><td>int, int</td></tr><tr><td>Returns:</td><td>int[]</td></tr><tr><td>Method signature:</td><td>int[] crack(int N, int K)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>N</b> will be between 2 and 30, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>K</b> will be between 1 and 30, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>2</pre></td></tr><tr><td><pre>3</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 1, 0, 1, 0, 1 }</pre></td></tr><tr><td><table><tr><td colspan="2"><p>
+Two people, each of them wants to open at least three crackers. The only optimal solution is obviously to use three crackers and have both people open each cracker. There are multiple ways to report this solution. E.g., {0, 1, 1, 0, 1, 0} would also be a correct answer.
+</p>
+<p>
+Note that {0, 0, 0, 1, 1, 1} is not a correct answer. The first two elements of this array say that the first cracker should be opened by person 0 and person 0, and that is not allowed: two <i>distinct</i> people must open each cracker.
+</p></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>5</pre></td></tr><tr><td><pre>1</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 3, 1, 2, 1, 4 }</pre></td></tr><tr><td><table><tr><td colspan="2">If each of five people wants to open at least one cracker, we need at least three crackers. One person will open two crackers.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>3</pre></td></tr><tr><td><pre>4</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 1, 0, 1, 0, 2, 0, 2, 1, 2, 2, 1 }</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
