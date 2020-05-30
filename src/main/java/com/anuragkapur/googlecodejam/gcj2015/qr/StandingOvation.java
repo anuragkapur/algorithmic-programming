@@ -1,7 +1,5 @@
 package com.anuragkapur.googlecodejam.gcj2015.qr;
 
-import com.sun.tools.javac.util.Assert;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URL;
@@ -58,7 +56,9 @@ public class StandingOvation {
 
     public static void main(String[] args) {
 
-        Assert.checkNonNull(inputFileName, "InputFileName cannot be null");
+        if (inputFileName == null) {
+            throw new IllegalArgumentException("InputFileName cannot be null");
+        }
 
         try {
             // String buffer for storing the output

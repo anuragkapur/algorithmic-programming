@@ -1,5 +1,6 @@
 # Output dirs
 out/
+target/
 
 # IDE files
 .idea/

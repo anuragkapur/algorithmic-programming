@@ -1,7 +1,5 @@
 package com.anuragkapur.googlecodejam.gcj2017.qr;
 
-import com.sun.tools.javac.util.Assert;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URL;
@@ -67,7 +65,9 @@ public class BathroomStalls {
 
     public static void main(String[] args) throws Exception {
 
-        Assert.checkNonNull(inputFileName, "InputFileName cannot be null");
+        if (inputFileName == null) {
+            throw new IllegalArgumentException("InputFileName cannot be null");
+        }
 
         try {
             // String buffer for storing the output
