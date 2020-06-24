@@ -28,6 +28,12 @@ class IsUnique {
         return true;
     }
 
+    /**
+     * O(n^2)
+     *
+     * @param input
+     * @return
+     */
     private static boolean isUniqueNoAdditionalDataStructures(String input) {
 
         if (input == null || input.isEmpty()) {
