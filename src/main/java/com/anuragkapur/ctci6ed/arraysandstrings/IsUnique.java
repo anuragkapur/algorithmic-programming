@@ -17,7 +17,7 @@ class IsUnique {
             throw new IllegalArgumentException("Input string should not be null or empty");
         }
 
-        Set<Character> uniqueCheckSet = new HashSet<Character>();
+        Set<Character> uniqueCheckSet = new HashSet<>();
         for(char ch : input.toCharArray()) {
             boolean wasNumberAdded = uniqueCheckSet.add(ch);
             if (!wasNumberAdded) {
