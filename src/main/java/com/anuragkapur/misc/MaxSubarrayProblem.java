@@ -2,90 +2,73 @@ package com.anuragkapur.misc;
 
 /**
  * A divide and conquer paradigm based algorithm
+ * RTC: O(nlogn)
+ * SP: O(1)
  * 
  * @author anurag.kapur
  */
 public class MaxSubarrayProblem {
 
-	static int numbers[] = { 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4 };
-	//static int numbers[] = {13, 3, 25, 20, -3, -16, -23, -18, -20, -7, -12,-5, -22, 15, -4};
-	// static int numbers[] = {13, -33, 25, 20};
-
-	public static String maxSubarrayCrossingMid(int startIndex, int endIndex, int mid) {
-
-		int runningSum = numbers[mid];
-		int maxLeftSum = runningSum;
-		int leftIndex = mid;
-		int rightIndex = mid + 1;
-
-		// Travel left from mid
-		for (int i = mid - 1; i >= startIndex; i--) {
-			runningSum += numbers[i];
-			if (runningSum >= maxLeftSum) {
-				maxLeftSum = runningSum;
-				leftIndex = i;
-			}
-		}
-
-		// Travel right from mid
-		runningSum = numbers[mid + 1];
-		int maxRightSum = runningSum;
-		for (int i = mid + 2; i <= endIndex; i++) {
-			runningSum += numbers[i];
-			if (runningSum >= maxRightSum) {
-				maxRightSum = runningSum;
-				rightIndex = i;
-			}
-		}
-
-		if (maxRightSum >= 0) {
-			String subArrayData = leftIndex + "," + rightIndex;
-			int sum = maxLeftSum + maxRightSum;
-			return sum + "," + subArrayData;
-		} else {
-			String subArrayData = leftIndex + "," + mid;
-			return maxLeftSum + "," + subArrayData;
-		}
+	public int maxSubArray(final int[] A) {
+		return maxSubArray(A, 0, A.length-1);
 	}
 
-	public static String maxSubarray(int startIndex, int endIndex) {
+	private int maxSubArray(int[] A, int start, int end) {
 
-		System.out.println("startIndex :: " + startIndex + " endIndex :: " + endIndex);
+		if (start == end) {
+			return A[start];
+		}
 
-		if (endIndex == startIndex || endIndex < startIndex) {
-			// Recursion base case 2
-			return numbers[startIndex] + "," + startIndex + "," + endIndex;
-		} else {
+		if (end - start == 1) {
+			return getMax(A[start], A[end], A[start] + A[end]);
+		}
 
-			// Recursive case
-			int mid = (endIndex + startIndex) / 2;
+		int mid = start + (end-start)/2;
 
-			// find max subarray recursively in sub problems
-			String leftSubArrayData = maxSubarray(startIndex, mid - 1);
-			int sumLeft = Integer.parseInt(leftSubArrayData.substring(0,leftSubArrayData.indexOf(",")));
-			String rightSubArrayData = maxSubarray(mid + 1, endIndex);
-			int sumRight = Integer.parseInt(rightSubArrayData.substring(0,rightSubArrayData.indexOf(",")));
+		int leftMaxSum = maxSubArray(A, start, mid);
+		int rightMaxSum = maxSubArray(A, mid+1, end);
+		int crossingMaxSum = maxCrossingArray(A, mid, start, end);
 
-			// find max subarray where subarray contains the mid element (this
-			// is like the combine step of the divide and conquer paradigm)
-			String midSubArrayData = maxSubarrayCrossingMid(startIndex, endIndex, mid);
-			int sumMiddle = Integer.parseInt(midSubArrayData.substring(0, midSubArrayData.indexOf(",")));
+		return getMax(leftMaxSum, rightMaxSum, crossingMaxSum);
+	}
 
-			// find which sum is max and return it
-			if (sumLeft > sumRight && sumLeft > sumMiddle) {
-				return leftSubArrayData;
-			} else if (sumRight > sumLeft && sumRight > sumMiddle) {
-				return rightSubArrayData;
-			} else {
-				return midSubArrayData;
+	private int maxCrossingArray(int[] A, int mid, int start, int end) {
+
+		// end - start will always be > 1, i.e atleast 3 elements in subarray
+
+		int leftMaxSum = Integer.MIN_VALUE;
+		int sum = 0;
+		for (int i=mid; i>=start; i--) {
+			sum += A[i];
+			if (sum > leftMaxSum) {
+				leftMaxSum = sum;
 			}
 		}
+
+		int rightMaxSum = Integer.MIN_VALUE;
+		sum = 0;
+		for (int i=mid+1; i<=end; i++) {
+			sum += A[i];
+			if (sum > rightMaxSum) {
+				rightMaxSum = sum;
+			}
+		}
+
+		return leftMaxSum + rightMaxSum;
+	}
+
+	private int getMax(int a, int b, int c) {
+		int temp = a > b ? a : b;
+		return temp > c ? temp : c;
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(maxSubarray(0, 14));
+		int numbers[] = { 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4 };
+		// int numbers[] = {13, 3, 25, 20, -3, -16, -23, -18, -20, -7, -12,-5, -22, 15, -4};
+		// int numbers[] = {13, -33, 25, 20};
+		System.out.println(new MaxSubarrayProblem().maxSubArray(numbers));
 	}
 }
