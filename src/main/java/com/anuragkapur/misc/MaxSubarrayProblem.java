@@ -15,31 +15,21 @@ public class MaxSubarrayProblem {
 
 	private MaxSubArray maxSubArray(int[] A, int start, int end) {
 
-		MaxSubArray maxSubArray = new MaxSubArray();
+		MaxSubArray maxSubArray;
 
 		if (start == end) {
-			maxSubArray.start = start;
-			maxSubArray.end = end;
-			maxSubArray.sum = A[start];
-			return maxSubArray;
+			return new MaxSubArray(start, start, A[start]);
 		}
 
 		if (end - start == 1) {
 			MaxOf3 maxOf3 = getMax(A[start], A[end], A[start] + A[end]);
 			if (maxOf3.index == 1) {
-				maxSubArray.start = start;
-				maxSubArray.end = start;
-				maxSubArray.sum = A[start];
+				maxSubArray = new MaxSubArray(start, start, A[start]);
 			} else if (maxOf3.index == 2) {
-				maxSubArray.start = end;
-				maxSubArray.end = end;
-				maxSubArray.sum = A[end];
+				maxSubArray = new MaxSubArray(end, end, A[end]);
 			} else {
-				maxSubArray.start = start;
-				maxSubArray.end = end;
-				maxSubArray.sum = A[start] + A[end];
+				maxSubArray = new MaxSubArray(start, end, A[start]+A[end]);
 			}
-
 			return maxSubArray;
 		}
 
@@ -51,17 +41,11 @@ public class MaxSubarrayProblem {
 
 		MaxOf3 maxOf3 = getMax(leftMax.sum, rightMax.sum, crossingMax.sum);
 		if (maxOf3.index == 1) {
-			maxSubArray.start = leftMax.start;
-			maxSubArray.end = leftMax.end;
-			maxSubArray.sum = leftMax.sum;
+			maxSubArray = leftMax;
 		} else if (maxOf3.index == 2) {
-			maxSubArray.start = rightMax.start;
-			maxSubArray.end = rightMax.end;
-			maxSubArray.sum = rightMax.sum;
+			maxSubArray = rightMax;
 		} else {
-			maxSubArray.start = crossingMax.start;
-			maxSubArray.end = crossingMax.end;
-			maxSubArray.sum = crossingMax.sum;
+			maxSubArray = crossingMax;
 		}
 
 		return maxSubArray;
@@ -93,11 +77,7 @@ public class MaxSubarrayProblem {
 			}
 		}
 
-		MaxSubArray maxSubArray = new MaxSubArray();
-		maxSubArray.start = left;
-		maxSubArray.end = right;
-		maxSubArray.sum = leftMaxSum + rightMaxSum;
-		return maxSubArray;
+		return new MaxSubArray(left, right, leftMaxSum + rightMaxSum);
 	}
 
 	private MaxOf3 getMax(int a, int b, int c) {
@@ -122,6 +102,12 @@ public class MaxSubarrayProblem {
 		int sum;
 		int start;
 		int end;
+
+		MaxSubArray(int start, int end, int sum) {
+			this.sum = sum;
+			this.start = start;
+			this.end = end;
+		}
 	}
 
 	private class MaxOf3 {
