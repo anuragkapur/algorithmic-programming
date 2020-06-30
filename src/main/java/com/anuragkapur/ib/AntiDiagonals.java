@@ -58,8 +58,8 @@ public class AntiDiagonals {
                     if ((j+k) <= answerRows/2) {
                         answer[j+k] = new int[j+k+1];
                     } else {
-                        int prevElemLen = answer[j+k-1].length;
-                        answer[j+k] = new int[prevElemLen-1];
+                        int size = answerRows - (j+k);
+                        answer[j+k] = new int[size];
                     }
                 }
                 answer[j+k][indexTracker[j+k]] = A[j][k];
@@ -69,6 +69,7 @@ public class AntiDiagonals {
 
         return answer;
     }
+
     public static void main(String[] args) {
         int[][] a = new int[2][];
         System.out.println(a[0]);
