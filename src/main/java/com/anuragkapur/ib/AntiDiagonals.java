@@ -40,7 +40,7 @@ public class AntiDiagonals {
     }
 
     /**
-     * Refactoring of diagonal1, but same RTC
+     * Refactoring of diagonal1, same RTC, but run time in absolute terms is lower than diagonal1
      *
      * @param A
      * @return
