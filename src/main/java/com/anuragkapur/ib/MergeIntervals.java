@@ -17,8 +17,6 @@ public class MergeIntervals {
         boolean isMerged = false;
         newInterval = sort(newInterval);
 
-        // System.out.println(newInterval.start + " :: " + newInterval.end);
-
         for (int i=0; i<intervals.size(); i++) {
             int last = answer.size()-1;
             if (!isMerged) {
