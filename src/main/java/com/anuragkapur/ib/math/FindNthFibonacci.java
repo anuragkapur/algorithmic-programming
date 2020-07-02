@@ -1,4 +1,4 @@
-package com.anuragkapur.ib;
+package com.anuragkapur.ib.math;
 
 public class FindNthFibonacci {
 

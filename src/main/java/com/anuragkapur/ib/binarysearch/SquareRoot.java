@@ -1,4 +1,4 @@
-package com.anuragkapur.ib;
+package com.anuragkapur.ib.binarysearch;
 
 public class SquareRoot {
 

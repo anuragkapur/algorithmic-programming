@@ -1,4 +1,4 @@
-package com.anuragkapur.ib;
+package com.anuragkapur.ib.arrays;
 
 /*
 [3, 2, 1, 3]

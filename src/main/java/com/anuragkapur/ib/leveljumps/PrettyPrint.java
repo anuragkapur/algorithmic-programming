@@ -1,4 +1,4 @@
-package com.anuragkapur.ib;
+package com.anuragkapur.ib.leveljumps;
 
 public class PrettyPrint {
     public int[][] prettyPrint(int A) {

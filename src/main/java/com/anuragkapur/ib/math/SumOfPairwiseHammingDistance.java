@@ -1,4 +1,4 @@
-package com.anuragkapur.ib;
+package com.anuragkapur.ib.math;
 
 /**
  * Correct solution but does not meet RTC requirements
