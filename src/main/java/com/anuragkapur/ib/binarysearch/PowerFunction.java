@@ -1,42 +1,43 @@
 package com.anuragkapur.ib.binarysearch;
 
+import java.math.BigInteger;
+
 public class PowerFunction {
 
-    /**
-     * Doesn't pass all tests; Number overflow problems
-     *
-     * @param x
-     * @param n
-     * @param d
-     * @return
-     */
     public int pow(int x, int n, int d) {
-        if (x == 0) {
-            return 0;
+        BigInteger bx = BigInteger.valueOf(x);
+        BigInteger bn = BigInteger.valueOf(n);
+        BigInteger bd = BigInteger.valueOf(d);
+        return powRec(bx, bn, bd).intValue();
+    }
+
+    public BigInteger powRec(BigInteger x, BigInteger n, BigInteger d) {
+        if (x.compareTo(BigInteger.ZERO) == 0) {
+            return BigInteger.ZERO;
         }
 
-        long ans = 0;
+        BigInteger ans;
 
-        if (n == 0) {
-            ans = 1;
-        } else if (n == 1) {
-            ans = x % d;
+        if (n.compareTo(BigInteger.ZERO) == 0) {
+            ans = BigInteger.ONE;
+        } else if (n.compareTo(BigInteger.ONE) == 0) {
+            ans = x.mod(d);
         } else {
-            if (n % 2 == 0) {
-                int half = n / 2;
-                int halfPow = pow(x, half, d);
-                ans = (halfPow * halfPow) % d;
+            if (n.mod(BigInteger.valueOf(2)).compareTo(BigInteger.ZERO) == 0) {
+                BigInteger half = n.divide(BigInteger.valueOf(2));
+                BigInteger halfPow = powRec(x, half, d);
+                ans = halfPow.multiply(halfPow).mod(d);
             } else {
-                int half = (n-1) / 2;
-                int halfPow = pow(x, half, d);
-                ans = (halfPow * halfPow * x) % d;
+                BigInteger half = n.subtract(BigInteger.ONE).divide(BigInteger.valueOf(2));
+                BigInteger halfPow = powRec(x, half, d);
+                ans = halfPow.multiply(halfPow).multiply(x).mod(d);
             }
         }
 
-        if (ans < 0) {
-            ans = d + ans;
+        if (ans.compareTo(BigInteger.ZERO) < 0) {
+            ans = d.add(ans);
         }
-        return (int)ans;
+        return ans;
     }
 
     public static void main(String[] args) {
