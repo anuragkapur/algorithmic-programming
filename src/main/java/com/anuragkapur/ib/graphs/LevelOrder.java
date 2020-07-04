@@ -19,8 +19,8 @@ public class LevelOrder {
 
     public int[][] levelOrder(TreeNode A) {
 
-        List<List<Integer>> answer = parse(A, new ArrayList(), 0);
-        int a[][] = new int[answer.size()][];
+        List<List<Integer>> answer = parse(A, new ArrayList<>(), 0);
+        int[][] a = new int[answer.size()][];
         for (int i = 0; i < answer.size(); i++) {
             a[i] = new int[answer.get(i).size()];
             for (int j = 0; j < answer.get(i).size(); j++) {
