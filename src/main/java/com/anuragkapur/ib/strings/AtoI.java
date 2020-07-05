@@ -3,9 +3,7 @@ package com.anuragkapur.ib.strings;
 public class AtoI {
 
     public int atoi(final String A) {
-
         String a = A.trim();
-
         StringBuilder builder = new StringBuilder();
         char[] chs = a.toCharArray();
         boolean signed = false;
@@ -39,37 +37,39 @@ public class AtoI {
         }
         chs = a.toCharArray();
 
-        long answer = 0;
+        int answer = 0;
         for (int i=0; i<chs.length; i++) {
             double multiplier = Math.pow(10, i);
             char ch = chs[chs.length-1-i];
             int num = (int) ch;
             num = num - (int)'0';
-            num *= multiplier;
-            answer += num;
-            if (answer > Integer.MAX_VALUE) {
+            int upper = 100000000;
+            if (answer >= upper && num > 1) {
                 if (negative) {
                     return Integer.MIN_VALUE;
                 } else {
                     return Integer.MAX_VALUE;
                 }
             }
+            num *= multiplier;
+            answer += num;
         }
 
         if (negative) {
             answer *= -1;
         }
 
-        return (int) answer;
+        return answer;
     }
 
     public static void main(String[] args) {
         AtoI a = new AtoI();
-        System.out.println(a.atoi("V515V"));
-        System.out.println(a.atoi("7 U 0 T7165"));
-        System.out.println(a.atoi("A-2"));
-        System.out.println(a.atoi("-23AA"));
-        System.out.println(a.atoi("+7"));
-        System.out.println(a.atoi("9 2"));
+//        System.out.println(a.atoi("V515V"));
+//        System.out.println(a.atoi("7 U 0 T7165"));
+//        System.out.println(a.atoi("A-2"));
+//        System.out.println(a.atoi("-23AA"));
+//        System.out.println(a.atoi("+7"));
+//        System.out.println(a.atoi("9 2"));
+        System.out.println(a.atoi("5121478262"));
     }
 }
