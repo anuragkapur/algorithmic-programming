@@ -5,6 +5,13 @@ import java.util.List;
 
 public class MedianOfArrays {
 
+    /**
+     * Incorrect
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public double findMedianSortedArrays(final List<Integer> a, final List<Integer> b) {
         int len = a.size() + b.size();
         int k = len / 2;
