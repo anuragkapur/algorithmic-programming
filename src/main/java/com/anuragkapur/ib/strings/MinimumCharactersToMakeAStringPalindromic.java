@@ -15,31 +15,24 @@ public class MinimumCharactersToMakeAStringPalindromic {
             return 0;
         }
 
-        // remove longest palindrome suffix
-        String newA = null;
-        char[] chs = A.toCharArray();
-        for (int i=chs.length; i>0; i--) {
-            StringBuilder builder = new StringBuilder();
-            builder.append(chs, 0, i);
-            if (isPalindrome(builder)) {
-                newA = A.substring(i);
-                break;
+        int pointer = A.length();
+        while (pointer > 0) {
+            if (isPalindrome(A.substring(0, pointer))) {
+                return A.length() - pointer;
+            } else {
+                pointer --;
             }
         }
 
-        if (newA != null) {
-            return newA.length();
-        } else {
-            return A.length() - 1;
-        }
+        return -1;
     }
 
-    private boolean isPalindrome(StringBuilder builder) {
-        int len = builder.length();
+    private boolean isPalindrome(String str) {
+        int len = str.length();
         int midLen = (len % 2 == 0) ? len / 2 - 1 : len / 2;
         for (int i=0; i<=midLen; i++) {
-            char a = builder.charAt(i);
-            char b = builder.charAt(len-1-i);
+            char a = str.charAt(i);
+            char b = str.charAt(len-1-i);
             if (a != b) {
                 return false;
             }
