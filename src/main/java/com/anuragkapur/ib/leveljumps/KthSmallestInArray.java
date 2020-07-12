@@ -1,17 +1,40 @@
 package com.anuragkapur.ib.leveljumps;
 
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class KthSmallestInArray {
 
     /**
-     * Partially Correct Answer. Time Limit Exceeded.
+     * RTC: O(n)
+     * SC: O(n)
      *
      * @param A
      * @param B
      * @return
      */
     public int kthsmallest(final List<Integer> A, int B) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for ( int i=0; i < A.size(); i++){
+            minHeap.add(A.get(i));
+        }
+
+        for (int i =0; i < B-1 ;i++){
+            minHeap.poll();
+        }
+        return minHeap.poll();
+    }
+
+    /**
+     * Partially Correct Answer. Time Limit Exceeded.
+     * RTC: O(n^2)
+     * SC: O(1)
+     *
+     * @param A
+     * @param B
+     * @return
+     */
+    public int kthsmallest1(final List<Integer> A, int B) {
         int prevSmall = Integer.MIN_VALUE;
         int k = 0;
         for (int i=0; i<A.size(); i++) {
