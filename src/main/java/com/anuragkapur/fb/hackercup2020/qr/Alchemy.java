@@ -3,20 +3,14 @@ package com.anuragkapur.fb.hackercup2020.qr;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Alchemy {
 
     private static final String INPUT_DIR = "src/main/resources/com.anurgakapur.fb.hackercup2020.qr";
-    private static final String INPUT_FILE = "alchemy_validation_input.txt";
-//    private static final String INPUT_FILE = "sample.in";
+    private static final String INPUT_FILE = "alchemy.in";
     private static final String OUTPUT_DIR = "src/main/resources/com.anurgakapur.fb.hackercup2020.qr";
-    private static final String OUTPUT_FILE = "alchemy_validation_input.answer";
-
-    private Map<String, String> memoize = new HashMap<>();
+    private static final String OUTPUT_FILE = "alchemy.out";
 
     public static void main(String[] args) {
         try {
@@ -27,75 +21,68 @@ public class Alchemy {
             for (int i = 2; i < lines.size(); i=i+2) {
                 System.out.println(lines.get(i));
                 String answer = a.compute(lines.get(i));
-                System.out.println("answer :: " + answer);
                 builder.append("Case #").append(caseCount).append(": ").append(answer).append(System.lineSeparator());
                 caseCount ++;
             }
-            System.out.println(builder.toString());
+            Files.write(Paths.get(OUTPUT_DIR, OUTPUT_FILE), builder.toString().getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    private String compute(String s) {
-        if (s.length() == 1) {
+    private String compute(String input) {
+
+        int size = input.length();
+        Set<String> combinedStrings = new HashSet<>();
+        combinedStrings.add(input);
+
+        while (size > 1) {
+            Set<String> toBeProcessed = combinedStrings;
+            System.out.println(size + " :: " + toBeProcessed.size());
+            combinedStrings = new HashSet<>();
+            Set<String> finalCombinedStrings = combinedStrings;
+            toBeProcessed.forEach(s -> {
+                for (int i = 0; i <= s.length()-3; i++) {
+                    String prefix = s.substring(0, i);
+                    String suffix = s.substring(i+3);
+                    String fused = getFused(s.charAt(i), s.charAt(i+1), s.charAt(i+2));
+                    if (fused != null) {
+                        StringBuilder builder = new StringBuilder();
+                        builder.append(prefix).append(fused).append(suffix);
+                        finalCombinedStrings.add(builder.toString());
+                    }
+                }
+            });
+            size = size - 2;
+            combinedStrings = finalCombinedStrings;
+        }
+
+        if (combinedStrings.size() > 0) {
             return "Y";
         } else {
-            List<Boolean> answers = new ArrayList<>();
-            for (int i = 0; i <= s.length()-3; i++) {
-                char ch1 = s.charAt(i);
-                char ch2 = s.charAt(i+1);
-                char ch3 = s.charAt(i+2);
+            return "N";
+        }
+    }
 
-                int countOfAs = 0;
-                if (ch1 == 'A') {
-                    countOfAs ++;
-                }
-                if (ch2 == 'A') {
-                    countOfAs ++;
-                }
-                if (ch3 == 'A') {
-                    countOfAs ++;
-                }
+    private String getFused(char ch1, char ch2, char ch3) {
+        int countOfAs = 0;
+        if (ch1 == 'A') {
+            countOfAs ++;
+        }
+        if (ch2 == 'A') {
+            countOfAs ++;
+        }
+        if (ch3 == 'A') {
+            countOfAs ++;
+        }
 
-                String left, combination, right;
-                if (countOfAs == 0 || countOfAs == 3) {
-                    answers.add(false);
-                    continue;
-                } else if (countOfAs == 1){
-                    combination = "B";
-                } else {
-                    combination = "A";
-                }
-                left = s.substring(0, i);
-                right = s.substring(i+3);
-
-                String subStr = left+combination+right;
-                if (memoize.containsKey(subStr)) {
-                    if (memoize.get(subStr).equals("Y")) {
-                        answers.add(true);
-                        break;
-                    } else {
-                        answers.add(false);
-                        continue;
-                    }
-                } else {
-                    if (compute(subStr).equals("Y")) {
-                        memoize.put(subStr, "Y");
-                        answers.add(true);
-                        break;
-                    } else {
-                        memoize.put(subStr, "N");
-                        answers.add(false);
-                    }
-                }
-            }
-            if (answers.contains(true)) {
-                return "Y";
-            } else {
-                return "N";
-            }
+        if (countOfAs == 0 || countOfAs == 3) {
+            return null;
+        } else if (countOfAs == 1) {
+            return "B";
+        } else {
+            return "A";
         }
     }
 }
