@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.Queue;
 
 public class FirstNonRepeatingCharacterStream {
+
+    /**
+     * RTC: O(n)
+     */
     public String solve(String A) {
 
         char[] chs = A.toCharArray();
