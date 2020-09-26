@@ -11,6 +11,8 @@ public class DistinctSubsequences {
 
     /**
      * Partially Correct Answer. Time Limit Exceeded.
+     * RTC: O(m*n) with memoization, although the solution below is not memoized.
+     * Calculating RTC without memoization seems rather tricky!
      */
     public int numDistinct(String A, String B) {
         populateOccurrencesMap(A);
