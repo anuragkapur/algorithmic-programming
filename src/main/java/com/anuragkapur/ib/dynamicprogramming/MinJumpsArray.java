@@ -7,7 +7,8 @@ import java.util.Map;
 public class MinJumpsArray {
 
     /**
-     * Partially Correct Answer. Time Limit Exceeded (but no StackOverflow like in jump1)
+     * Partially Correct Answer. Time Limit Exceeded (but no StackOverflow like in jump1).
+     * RTC: O(n^2)
      */
     public int jump(ArrayList<Integer> A) {
 
