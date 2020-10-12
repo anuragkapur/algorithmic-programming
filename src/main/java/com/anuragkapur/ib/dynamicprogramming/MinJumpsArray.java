@@ -13,13 +13,13 @@ public class MinJumpsArray {
 
         int[] steps = new int[A.size()];
         for (int i=0; i<A.size(); i++) {
-            steps[i] = A.size();
+            steps[i] = 50001;
         }
         steps[A.size()-1] = 0;
 
         for (int i=A.size()-2; i>=0; i--) {
             int maxStep = A.get(i);
-            int min = A.size();
+            int min = 50001;
             for (int j=i+1; j<=i+maxStep; j++) {
                 if (j < A.size()) {
                     int stepSize = steps[j] + 1;
@@ -31,7 +31,7 @@ public class MinJumpsArray {
             steps[i] = min;
         }
 
-        if (steps[0] == A.size()) {
+        if (steps[0] == 50001) {
             return -1;
         } else {
             return steps[0];
