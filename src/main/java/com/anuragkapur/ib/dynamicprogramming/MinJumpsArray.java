@@ -5,13 +5,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MinJumpsArray {
+
+    /**
+     * Partially Correct Answer. Time Limit Exceeded (but no StackOverflow like in jump1)
+     */
+    public int jump(ArrayList<Integer> A) {
+
+        int[] steps = new int[A.size()];
+        for (int i=0; i<A.size(); i++) {
+            steps[i] = A.size();
+        }
+        steps[A.size()-1] = 0;
+
+        for (int i=A.size()-2; i>=0; i--) {
+            int maxStep = A.get(i);
+            int min = A.size();
+            for (int j=i+1; j<=i+maxStep; j++) {
+                if (j < A.size()) {
+                    int stepSize = steps[j] + 1;
+                    if (stepSize < min) {
+                        min = stepSize;
+                    }
+                }
+            }
+            steps[i] = min;
+        }
+
+        if (steps[0] == A.size()) {
+            return -1;
+        } else {
+            return steps[0];
+        }
+    }
+
     Map<Integer, Integer> memTable = new HashMap<>();
 
     /**
-     * Partially Correct Answer.
-     * StackOverflow Error (for large problems, that lead to a lot of recursion, I think)
+     * Partially Correct Answer. StackOverflow Error (for large problems, that lead to a lot of recursion, I think)
      */
-    public int jump(ArrayList<Integer> A) {
+    public int jump1(ArrayList<Integer> A) {
         return jumps(A, 0);
     }
 
