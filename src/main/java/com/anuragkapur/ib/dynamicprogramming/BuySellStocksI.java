@@ -13,15 +13,15 @@ public class BuySellStocksI {
             return 0;
         }
 
-        int min = A.get(0);
-        int max = 0;
+        int minPrice = A.get(0);
+        int maxProfit = 0;
 
         for (int i=0; i<A.size(); i++) {
-            min = Math.min(min, A.get(i));
-            max = Math.max(max, A.get(i) - min);
+            minPrice = Math.min(minPrice, A.get(i));
+            maxProfit = Math.max(maxProfit, A.get(i) - minPrice);
         }
 
-        return max;
+        return maxProfit;
     }
 
     /**
