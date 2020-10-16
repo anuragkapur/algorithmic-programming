@@ -10,6 +10,20 @@ public class KClosestPointsToOrigin_973 {
      *  n = number of points
      */
     public int[][] kClosest(int[][] points, int K) {
+        Arrays.sort(points, Comparator.comparingInt(this::getDistance));
+        int[][] kClosest = new int[K][2];
+        for (int i=0; i<K; i++) {
+            kClosest[i] = points[i];
+        }
+        return kClosest;
+    }
+
+    /**
+     * RTC: O(n*log(n))
+     * where,
+     *  n = number of points
+     */
+    public int[][] kClosest1(int[][] points, int K) {
 
         Map<Integer, List<Integer>> distanceToIndex = new HashMap<>();
 
