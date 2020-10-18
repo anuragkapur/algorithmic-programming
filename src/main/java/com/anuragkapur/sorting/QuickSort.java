@@ -5,7 +5,7 @@ package com.anuragkapur.sorting;
  */
 public class QuickSort {
 
-    public void sort(int a[], int start, int end) {
+    public void sort(int[] a, int start, int end) {
 
         if (end <= start) {
             return;
@@ -17,26 +17,35 @@ public class QuickSort {
 
     }
 
-    public int partition(int a[], int start, int end) {
+    public int partition(int[] a, int start, int end) {
 
-        int i = start - 1;
+        int i = start;
         int x = a[end];
 
         for (int j = start; j < end; j++) {
             if (a[j] < x) {
+                swap(a, i, j);
                 i++;
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
             }
         }
 
-        i++;
-        int temp = a[i];
-        a[i] = a[end];
-        a[end] = temp;
+        swap(a, i, end);
 
         return i;
     }
 
+    private void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] a = {6, 1, 3, 4, 2, 9, 5, 8, 7};
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(a, 0, a.length-1);
+        for (int num : a) {
+            System.out.println(num);
+        }
+    }
 }
