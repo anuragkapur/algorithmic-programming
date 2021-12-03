@@ -22,6 +22,7 @@ public class Day1SonarSweep {
         BufferedReader reader = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8);
         List<Integer> numbers = reader.lines().map(Integer::parseInt).collect(Collectors.toList());
         getCountOfIncreases(numbers);
+        getCountOfSlidingWindowIncreases(numbers);
     }
 
     private static void getCountOfIncreases(List<Integer> numbers) {
@@ -32,6 +33,18 @@ public class Day1SonarSweep {
                 count ++;
             }
             previous = num;
+        }
+        System.out.println(count);
+    }
+
+    private static void getCountOfSlidingWindowIncreases(List<Integer> numbers) {
+        int count = 0;
+        for (int i = 0; i < numbers.size() - 3; i++) {
+            int window1Sum = numbers.get(i) + numbers.get(i+1) + numbers.get(i+2);
+            int window2Sum = numbers.get(i+1) + numbers.get(i+2) + numbers.get(i+3);
+            if (window2Sum > window1Sum) {
+                count ++;
+            }
         }
         System.out.println(count);
     }
