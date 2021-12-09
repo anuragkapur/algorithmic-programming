@@ -1,6 +1,7 @@
 package com.anuragkapur.aoc2021;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Day5HydrothermalVenture {
@@ -10,21 +11,46 @@ public class Day5HydrothermalVenture {
 
     public static void main(String[] args) throws IOException {
         List<String> inputLines = AOC2021Util.getFileLines("com.anuragkapur.aoc2021/day5_hydrothermalventure.in");
+        List<Line> lines = new ArrayList<>();
         for (String input : inputLines) {
-            Line line = getLineFromInput(input);
+            lines.add(getLineFromInput(input));
+        }
+        part1(lines); // 6564
+        part2(lines); // 19172
+    }
+
+    private static void part1(List<Line> lines) {
+        for (Line line : lines) {
             if (line.type.equals(Type.Horizontal)) {
-                for (int i = line.fromX; i <= line.toX ; i++) {
-                    diagram[i][line.fromY] ++;
-                    if (diagram[i][line.fromY] == 2) {
-                        countOfAtLeast2 ++;
-                    }
+                for (int x = line.fromX; x <= line.toX ; x++) {
+                    diagram[x][line.fromY] ++;
+                    countOfAtLeast2 = diagram[x][line.fromY] == 2 ? countOfAtLeast2 + 1 : countOfAtLeast2;
                 }
-            } else if (line.type.equals(Type.Vertical)){
-                for (int i = line.fromY; i <= line.toY ; i++) {
-                    diagram[line.fromX][i] ++;
-                    if (diagram[line.fromX][i] == 2) {
-                        countOfAtLeast2 ++;
-                    }
+            } else if (line.type.equals(Type.Vertical)) {
+                for (int y = line.fromY; y <= line.toY; y++) {
+                    diagram[line.fromX][y]++;
+                    countOfAtLeast2 = diagram[line.fromX][y] == 2 ? countOfAtLeast2 + 1 : countOfAtLeast2;
+                }
+            }
+        }
+        System.out.println(countOfAtLeast2);
+    }
+
+    private static void part2(List<Line> lines) {
+        for (Line line : lines) {
+            if (line.type.equals((Type.RightDiag))) {
+                int y = line.fromY;
+                for (int x = line.fromX; x <= line.toX ; x++) {
+                    diagram[x][y] ++;
+                    countOfAtLeast2 = diagram[x][y] == 2 ? countOfAtLeast2 + 1 : countOfAtLeast2;
+                    y ++;
+                }
+            } else if (line.type.equals(Type.LeftDiag)){
+                int y = line.fromY;
+                for (int x = line.fromX; x >= line.toX ; x--) {
+                    diagram[x][y] ++;
+                    countOfAtLeast2 = diagram[x][y] == 2 ? countOfAtLeast2 + 1 : countOfAtLeast2;
+                    y ++;
                 }
             }
         }
@@ -48,31 +74,31 @@ public class Day5HydrothermalVenture {
         if (x1 == x2) {
             line.type = Type.Vertical;
             if (y1 > y2) {
-                line.fromY = y2;
-                line.toY = y1;
-                line.fromX = x2;
-                line.toX = x1;
+                line.setLineCoordinates(x2, x1, y2, y1);
             } else {
-                line.fromY = y1;
-                line.toY = y2;
-                line.fromX = x1;
-                line.toX = x2;
+                line.setLineCoordinates(x1, x2, y1, y2);
             }
         } else if (y1 == y2) {
             line.type = Type.Horizontal;
             if (x1 > x2) {
-                line.fromX = x2;
-                line.toX = x1;
-                line.fromY = y2;
-                line.toY = y1;
+                line.setLineCoordinates(x2, x1, y2, y1);
             } else {
-                line.fromX = x1;
-                line.toX = x2;
-                line.fromY = y1;
-                line.toY = y2;
+                line.setLineCoordinates(x1, x2, y1, y2);
+            }
+        } else if ((x1 > x2 && y1 > y2) || (x1 < x2 && y1 < y2)){
+            line.type = Type.RightDiag;
+            if (x1 < x2) {
+                line.setLineCoordinates(x1, x2, y1, y2);
+            } else {
+                line.setLineCoordinates(x2, x1, y2, y1);
             }
         } else {
-            line.type = Type.Other;
+            line.type = Type.LeftDiag;
+            if (x1 > x2) {
+                line.setLineCoordinates(x1, x2, y1, y2);
+            } else {
+                line.setLineCoordinates(x2, x1, y2, y1);
+            }
         }
         return line;
     }
@@ -84,10 +110,17 @@ class Line {
     int fromY;
     int toX;
     int toY;
+    void setLineCoordinates(int fromX, int toX, int fromY, int toY) {
+        this.fromX = fromX;
+        this.toX = toX;
+        this.fromY = fromY;
+        this.toY = toY;
+    }
 }
 
 enum Type {
     Horizontal,
     Vertical,
-    Other
+    RightDiag,
+    LeftDiag,
 }
