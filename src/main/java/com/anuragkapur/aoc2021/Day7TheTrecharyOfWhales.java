@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Day7TheTrecharyOfWhales {
 
     public static void main(String[] args) throws IOException {
-        List<String> inputLines = AOC2021Util.getFileLines("com.anuragkapur.aoc2021/day6_thetrecharyofwhales.in");
+        List<String> inputLines = AOC2021Util.getFileLines("com.anuragkapur.aoc2021/day7_thetrecharyofwhales.in");
         List<Integer> nums = Arrays.stream(inputLines.get(0).split(",")).map(Integer::parseInt).collect(Collectors.toList());
         computeMinCost(nums, (from, to) -> Math.abs(from - to)); // 336131
         computeMinCost(nums, (from, to) -> {
