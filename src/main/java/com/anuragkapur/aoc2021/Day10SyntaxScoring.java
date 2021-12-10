@@ -8,45 +8,45 @@ import java.util.Stack;
 public class Day10SyntaxScoring {
     public static void main(String[] args) throws IOException {
         List<String> inputLines = AOC2021Util.getFileLines("com.anuragkapur.aoc2021/day10_syntaxscoring.in");
-        part1(inputLines);
+        part1(inputLines); // 278475
     }
 
     private static void part1(List<String> inputLines) {
         List<Character> illegalChars = new ArrayList<>();
         for (String inputLine : inputLines) {
             Stack<Character> charStack = new Stack<>();
+            boolean illegalCharFound = false;
             for (int i = 0; i < inputLine.length(); i++) {
-                char character = inputLine.charAt(i);
-                switch (character) {
-                    case '(':
-
-                    case '[':
-
-                    case '{':
-
-                    case '<':
-                        charStack.push(character);
-                        break;
-
-                    case ')': {
-                        checkLegality(charStack, '(', illegalChars, character);
-                        break;
+                char currentChar = inputLine.charAt(i);
+                if (currentChar == '(' || currentChar == '[' || currentChar == '{' || currentChar == '<') {
+                    charStack.push(currentChar);
+                } else if (currentChar == ')') {
+                    if (!isLegal(charStack, '(')) {
+                        illegalCharFound = true;
                     }
-                    case ']': {
-                        checkLegality(charStack, '[', illegalChars, character);
-                        break;
+                } else if (currentChar == ']') {
+                    if (!isLegal(charStack, '[')) {
+                        illegalCharFound = true;
                     }
-                    case '}': {
-                        checkLegality(charStack, '{', illegalChars, character);
-                        break;
+                } else if (currentChar == '}') {
+                    if (!isLegal(charStack, '{')) {
+                        illegalCharFound = true;
                     }
-                    case '>': {
-                        checkLegality(charStack, '<', illegalChars, character);
-                        break;
+                } else if (currentChar == '>') {
+                    if (!isLegal(charStack, '<')) {
+                        illegalCharFound = true;
                     }
+                }
+                if (illegalCharFound) {
+                    illegalChars.add(currentChar);
+                    break;
                 }
             }
         }
+        System.out.println(getTotalErrorScore(illegalChars));
+    }
+
+    private static int getTotalErrorScore(List<Character> illegalChars) {
         int totalErrorScore = 0;
         for (Character illegalChar : illegalChars) {
             switch (illegalChar) {
@@ -64,13 +64,10 @@ public class Day10SyntaxScoring {
                     break;
             }
         }
-        System.out.println(totalErrorScore);
+        return totalErrorScore;
     }
 
-    private static void checkLegality(Stack<Character> charStack, char expectedChar, List<Character> illegalChars, char character) {
-        char top = charStack.pop();
-        if (top != expectedChar) {
-            illegalChars.add(character);
-        }
+    private static boolean isLegal(Stack<Character> charStack, char expectedChar) {
+        return charStack.pop() == expectedChar ? true : false;
     }
 }
