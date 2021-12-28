@@ -36,13 +36,13 @@ public class NailingABanner {
 			round ++;
 		}
 
-		// Nth nail is nail number (**new nail added in this round**): `diff` in the round: `round`
-		// Ex: 3/8 is the 2nd nail added in round 3. Calculated as(numberOfElementsInRound[4] - (count[9] - N[7]) = 2)
+		// Nth nail is new (**added in this round**) nail number: `positionInRound` in the round: `round`
+		// Ex: 3/8 is the 2nd nail added in round 3. Calculated as: (numberOfElementsInRound[4] - (count[9] - N[7]) = 2)
 		long numberOfElementsInRound = (long) Math.pow(2, round) / 2;
-		long diff = numberOfElementsInRound - (count - N);
+		long positionInRound = numberOfElementsInRound - (count - N);
 
 		// Value of nail number: `diff` in round: `round`
-		return (long) Math.pow(2, 60) / (long) Math.pow(2, round) * (diff * 2 - 1);
+		return (long) Math.pow(2, 60) / (long) Math.pow(2, round) * (positionInRound * 2 - 1);
 	}
 
 	/**
