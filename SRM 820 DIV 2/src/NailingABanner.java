@@ -1,10 +1,11 @@
-import java.util.*;
-import java.math.*;
+import java.math.BigInteger;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class NailingABanner {
 
 	/**
-	 * Status: Should be correct, but have to wait for topcoder's system tests to confirm
+	 * Status: Passed all system tests
 	 *
 	 * Total nails at coordinates after Round 0: 0 ... 1
 	 * Total nails at coordinates after Round 1: 0/2, 1/2, 1/1
@@ -46,8 +47,8 @@ public class NailingABanner {
 	}
 
 	/**
-	 * Works with the example test cases provided but fails (times out / runs out of memory) for large Ns. Not an
-	 * optimal solution.
+	 * Works with the example test cases provided but fails (times out / runs out of memory) for large Ns in system
+	 * tests. Not an optimal solution.
 	 *
 	 * @param N
 	 * @return
