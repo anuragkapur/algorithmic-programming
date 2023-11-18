@@ -1,4 +1,4 @@
-package com.anuragkapur.leetcode.fb;
+package com.anuragkapur.leetcode.fb2021;
 
 public class MergeKSortedLists_23 {
     ListNode root = null;

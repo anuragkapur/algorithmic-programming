@@ -1,4 +1,4 @@
-package com.anuragkapur.leetcode.fb;
+package com.anuragkapur.leetcode.fb2021;
 
 public class BinaryTreeMaxPathSum_124 {
     int maxSum = Integer.MIN_VALUE;

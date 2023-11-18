@@ -1,4 +1,4 @@
-package com.anuragkapur.leetcode.fb;
+package com.anuragkapur.leetcode.fb2021;
 
 /**
  * https://leetcode.com/problems/product-of-array-except-self/

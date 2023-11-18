@@ -1,4 +1,4 @@
-package com.anuragkapur.leetcode.fb;
+package com.anuragkapur.leetcode.fb2021;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.anuragkapur.leetcode.fb;
+package com.anuragkapur.leetcode.fb2021;
 
 public class MinRemoveMakeValidParentheses_1249 {
     public String minRemoveToMakeValid(String s) {
