@@ -5,7 +5,8 @@ import java.util.Arrays;
 class MergeIntervals_56 {
 
     /**
-     * Time complexity: O(n*log(n))
+     * Time complexity: O(nlog(n)
+     * Space complexity: O(n)
      * Leetcode Status: Accepted; Runtime: 8ms; Beats 91.47% of users with Java
      */
     public int[][] merge2(int[][] intervals) {
@@ -42,6 +43,7 @@ class MergeIntervals_56 {
 
     /**
      * Time complexity: O(n^2)
+     * Space complexity: O(n)
      * Status: Accepted; but not optimal
      */
     public int[][] merge1(int[][] intervals) {
