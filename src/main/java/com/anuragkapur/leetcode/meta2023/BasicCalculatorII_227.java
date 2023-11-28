@@ -25,10 +25,10 @@ public class BasicCalculatorII_227 {
             } else if (str.equals("/")) {
                 stack.push(stack.pop() / Integer.parseInt(inputList.get(i+1)));
                 i++;
-            } else if (!str.equals("+")){
-                stack.push(Integer.parseInt(str));
-            } else {
+            } else if (str.equals("+")){
                 // + is a no op
+            } else {
+                stack.push(Integer.parseInt(str));
             }
         }
 
