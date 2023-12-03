@@ -10,6 +10,10 @@ public class BasicCalculatorII_227 {
      * Runtime Complexity: O(n)
      * Space Complexity: O(n)
      * Leetcode Status: Accepted; Runtime: 46ms; Beats 8.64% of users with Java
+     *
+     * [Not implemented] Alternative, more general approach that scales to more operator types
+     * (1) Convert infix to postfix: https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/
+     * (2) Evaluate postfix: https://www.geeksforgeeks.org/evaluation-of-postfix-expression/
      */
     public int calculate(String s) {
         List<String> inputList = parseInputString(s);
